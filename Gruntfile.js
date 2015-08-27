@@ -3,8 +3,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       dist: {
-        src: [ 'client/bower_components/underscore.js', 'public/bower_components/jquery.js', 'public/bower_components/backbone.js', 'public/bower_components/handlebars.js'],
-        dest: 'dist/production.js'
+        src: ['bower_components/underscore/underscore.js', 
+        'bower_components/jquery/dist/jquery.js', 
+        'bower_components/backbone/backbone.js', 
+        'bower_components/handlebars/handlebars.js', 
+        'bower_components/bootstrap/dist/bootstrap.js',
+        'client/app/*.js'],
+        dest: 'client/dist/production.js'
       }
     },
 
@@ -33,7 +38,7 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
-        'server/*/*.js', 'client/app/*.js'
+        'server/app.js', 'server/routes.js', 'client/app/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -44,7 +49,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         files: {
-          'styles/styles-min.css': ['styles/styles.css']
+          'client/dist/styles/styles-min.css': ['client/dist/styles/styles.css', 'bower_components/bootstrap/dist/css/bootstrap.css']
         }
       }
     },
@@ -110,7 +115,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', [ 'jshint','concat', 'css-min', 'uglify' //, 'mochaTest' - put this back when i get some tests.
+  grunt.registerTask('build', [ 'jshint','concat', 'cssmin', 'uglify' //, 'mochaTest' - put this back when i get some tests.
   ]);
 
   grunt.registerTask('upload', function(n) {

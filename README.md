@@ -1,4 +1,4 @@
-# Ds-wright-node
+# Ds-wright Blog
 
 ##Page Types
 

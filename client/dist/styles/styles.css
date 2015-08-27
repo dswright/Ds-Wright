@@ -1,0 +1,183 @@
+
+ /* HEADER & NAVIGATION STYLES */
+#header {
+  font-family: Geneva,Verdana,sans-serif;
+  margin:auto;
+  height: 4em;
+  padding-top:1em;
+  padding-left:2em;
+  border-bottom: 1px solid gray;
+}
+
+#navigation {
+  float: left;
+  margin-left: 2em;
+  font-size: 14px;
+  margin-top:0.9em;
+}
+
+#navigation div {
+  float: left;
+  width: 12em;
+  font-size: 1.0em;
+  padding-left: 2em;
+  padding-right:2em;
+  padding-bottom:0.55em;
+  text-align:center;
+}
+
+#navigation div:hover {
+  border-bottom: 3px solid black;
+  cursor: pointer;
+}
+
+#logo {
+  float:left;
+  font-size: 1.7em;
+}
+/* END OF HEADER STYLES */
+
+
+/* STYLES FOR RIGHT COL */
+#right-col {
+  background-color: #fafafa;
+  padding-left: 2em;
+  padding-right:2em;
+  padding-top:2em;
+}
+
+#bio {
+  padding-top:1em;
+  padding-left:6em;
+  padding-right:6em;
+  margin-bottom:3em;
+}
+
+#headshot {
+}
+
+#headshot img {
+  max-width:100%;
+}
+
+.sidebar-title {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#category-cloud {
+  margin-bottom: 2em;
+}
+.category-link {
+  border: 1px solid gray;
+  background-color: #FFF;
+  float:left;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  border-radius:0.5em;
+}
+
+.category-link:hover {
+  border: 1px solid green;
+  color: green;
+  cursor: pointer;
+}
+
+.sidebar-post {
+  font-size: 1em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+.sidebar-post-date {
+  color: gray;
+  font-size:0.8em;
+}
+
+#sidebar-posts {
+  margin-left:0.5em;
+  margin-bottom:2em;
+}
+
+#sidebar-projects {
+  margin-left:0.5em;
+  margin-bottom:2em;
+}
+
+.sidebar-project {
+  font-size: 1em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+#main-col {
+  margin:auto;
+  padding-left:10em;
+  padding-right:10em;
+  padding-top:2em;
+  margin-bottom:5em;
+}
+
+
+
+
+/* POST STYLES */
+
+.post {
+  padding-bottom:2em;
+  border-bottom: 1px solid gray;
+}
+
+.post-header {
+  font-size:1em;
+}
+
+.author-name: {
+}
+
+.time-ago {
+}
+
+.post-header {
+  margin-bottom:0.5em;
+}
+
+.post-image img{
+  max-width:100%;
+}
+
+.post-title {
+  font-size: 2em;
+}
+
+.post-summary {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  font-size: 1.3em;
+  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+}
+
+.post-footer span{
+  cursor: pointer;
+}
+
+/* implement ClearFix for floating divs */
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
