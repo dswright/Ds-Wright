@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/templates');
 
 // Set what we are listening on.
-app.set("port", 3000);
+app.set("port", process.env.PORT || 3000);
 
 // Parsing
 app.use(parser.json()); //makes it so that the req.body is available as JSON automatically from request.
