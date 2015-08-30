@@ -16753,10 +16753,19 @@ return /******/ (function(modules) { // webpackBootstrap
 window.App = Backbone.View.extend({
 
   initialize: function(){
-    this.$el = $('body');
-    this.router = new App.Router({el: this.$el.find('#body-container')});
+    this.$el = $('body').find('#body-container');
+
+    console.log(this.$el);
+
+    this.router = new App.Router({el: this.$el});
+
+    this.router.on('route', function() {
+      var rightCol = new App.rightColView();
+      this.$el.append(rightCol.render().$el);
+    });
+
     Backbone.history.start({pushState:true});
-    
+
     //this.render();
   },
   
@@ -16789,14 +16798,22 @@ window.App = Backbone.View.extend({
 
 
 
+App.postCollection = Backbone.Collection.extend({
+  initialize: function(){
+    this.model = App.post;
+    this.url = "json/posts.json";
+  }
+});
+App.post = Backbone.Model.extend({
+
+});
 App.Router = Backbone.Router.extend({
   initialize: function(options){ //options
     this.$el = options.el;
   },
 
   routes: {
-    'create': 'index',
-    'home': 'index',
+    'post/:id/:title': 'post',
     '': 'index'
    // 'create': 'create'
   },
@@ -16805,18 +16822,27 @@ App.Router = Backbone.Router.extend({
   //   this.$el.html(view.render().el);
   // },
 
+  post: function(){
+    console.log("something different");
+  },
+
   index: function(){
 
-     var mainCol = new App.mainColView();
-    this.$el.append(mainCol.render().$el);
-    
-    var rightCol = new App.rightColView();
-    this.$el.append(rightCol.render().$el);
+    var mainCol = new App.mainColView();
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl);
 
-   
+    var postCollection = new App.postCollection();
+    postCollection.fetch({
+      success: function(results) {
 
-    console.log(this.$el);
-    console.log("something easy");
+        for (var i=0; i<results.length; i++){
+          var postView = new App.postView({model: results.models[i]});
+          var postViewEl = postView.render().$el;
+          mainColEl.append(postViewEl);
+        }
+      }.bind(this)
+    });
     // var links = new Shortly.Links();
     // var linksView = new Shortly.LinksView({ collection: links });
     // this.swapView(linksView);
@@ -16825,6 +16851,32 @@ App.Router = Backbone.Router.extend({
   // create: function(){
   //   this.swapView(new Shortly.createLinkView());
   // }
+});
+
+App.postView = Backbone.View.extend({
+  //template: Handlebars.compile($("#bio-template").html()),
+  render: function(){
+    var src = $("#post-template").html();
+    var template = Handlebars.compile(src);
+    var context = {title: "something"};
+    console.log(template(context));
+    console.log(this.model.attributes);
+    this.$el.html(template(context));
+    return this;
+  }
+});
+
+App.mainColView = Backbone.View.extend({
+  initialize: function(){
+    console.log("initializing");
+  },
+  className: "col-md-8",
+  id: "main-col",
+  render: function(){
+    // var postView = new App.postView();
+    // this.$el.append(postView.render().$el);
+    return this;
+  }
 });
 App.sidebarBioView = Backbone.View.extend({
   //template: Handlebars.compile($("#bio-template").html()),
@@ -16881,29 +16933,6 @@ App.rightColView = Backbone.View.extend({
     var sidebarPostsView = new App.sidebarPostsView();
     this.$el.append(sidebarPostsView.render().$el);
 
-    return this;
-  }
-});
-
-App.postView = Backbone.View.extend({
-  //template: Handlebars.compile($("#bio-template").html()),
-  render: function(){
-    var source = $("#post-template").html();
-    var template = Handlebars.compile(source);
-    this.$el.html(template);
-    return this;
-  }
-});
-
-App.mainColView = Backbone.View.extend({
-  initialize: function(){
-    console.log("initializing");
-  },
-  className: "col-md-8",
-  id: "main-col",
-  render: function(){
-    var postView = new App.postView();
-    this.$el.append(postView.render().$el);
     return this;
   }
 });

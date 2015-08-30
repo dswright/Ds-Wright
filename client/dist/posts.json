@@ -1,0 +1,19 @@
+
+  [
+    {
+      "id": "1",
+      "title": "something here!",
+      "date": "August 22nd, 2014",
+      "img": "http://ds-wright.com/images/posts/code-sn.png",
+      "lead": "See the 26 ways to put your custom domain on heroku",
+      "url": "something_here"
+    },
+    {
+      "id": "1",
+      "title": "something here!",
+      "date": "August 22nd, 2014",
+      "img": "http://ds-wright.com/images/posts/code-sn.png",
+      "lead": "See the 26 ways to put your custom domain on heroku",
+      "url": "something_here"
+    }
+  ]

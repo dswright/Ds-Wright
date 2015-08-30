@@ -8,7 +8,9 @@ module.exports = function(grunt) {
         'bower_components/backbone/backbone.js', 
         'bower_components/handlebars/handlebars.js', 
         'bower_components/bootstrap/dist/bootstrap.js',
-        'client/app/*.js'],
+        'client/app/*.js',
+        'client/app/*/*.js']
+        ,
         dest: 'client/dist/production.js'
       }
     },
@@ -38,7 +40,7 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
-        'server/app.js', 'server/routes.js', 'client/app/*.js'
+        'server/app.js', 'server/routes.js', 'client/app/*.js', 'client/app/*/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -58,6 +60,7 @@ module.exports = function(grunt) {
       scripts: {
         files: [
           'client/app/*.js',
+          'client/app/*/*.js',
           'server/*/*.js',
           'server/*.js'
         ],

@@ -4,8 +4,7 @@ App.Router = Backbone.Router.extend({
   },
 
   routes: {
-    'create': 'index',
-    'home': 'index',
+    'post/:id/:title': 'post',
     '': 'index'
    // 'create': 'create'
   },
@@ -14,18 +13,27 @@ App.Router = Backbone.Router.extend({
   //   this.$el.html(view.render().el);
   // },
 
+  post: function(){
+    console.log("something different");
+  },
+
   index: function(){
 
-     var mainCol = new App.mainColView();
-    this.$el.append(mainCol.render().$el);
-    
-    var rightCol = new App.rightColView();
-    this.$el.append(rightCol.render().$el);
+    var mainCol = new App.mainColView();
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl);
 
-   
+    var postCollection = new App.postCollection();
+    postCollection.fetch({
+      success: function(results) {
 
-    console.log(this.$el);
-    console.log("something easy");
+        for (var i=0; i<results.length; i++){
+          var postView = new App.postView({model: results.models[i]});
+          var postViewEl = postView.render().$el;
+          mainColEl.append(postViewEl);
+        }
+      }.bind(this)
+    });
     // var links = new Shortly.Links();
     // var linksView = new Shortly.LinksView({ collection: links });
     // this.swapView(linksView);

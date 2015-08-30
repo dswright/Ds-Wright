@@ -1,19 +1,18 @@
 var express = require('express');
 var path = require('path');
+var expressHbs = require('express-handlebars');
 
 var db = require('./db');
 
 // Middleware - not sure what these are doing.
 var parser = require('body-parser'); //makes the req.body.json an available json object.
 
-// Router
-var router = require('./routes.js');
-
 var app = express();
 module.exports.app = app;
 
 //set thew view templates and the view engine to ejs for loading the server
-app.set('view engine', 'ejs');
+app.engine('hbs', expressHbs({extname:'hbs', defaultLayout:false}));
+app.set('view engine', 'hbs');
 app.set('views', __dirname + '/templates');
 
 // Set what we are listening on.
@@ -25,12 +24,8 @@ app.use(parser.json()); //makes it so that the req.body is available as JSON aut
 // Serve static img, css, and js files from the client/dist directory..
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-// Set up our routes
-app.use("/", router);
-
-
 app.get("*", function(req, res) {
-  res.render("index");
+  res.render("index"); //basically always render the same template. With the exception of static assets.
 });
 
 // If we are being run directly, run the server.

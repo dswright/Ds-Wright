@@ -1,10 +1,19 @@
 window.App = Backbone.View.extend({
 
   initialize: function(){
-    this.$el = $('body');
-    this.router = new App.Router({el: this.$el.find('#body-container')});
+    this.$el = $('body').find('#body-container');
+
+    console.log(this.$el);
+
+    this.router = new App.Router({el: this.$el});
+
+    this.router.on('route', function() {
+      var rightCol = new App.rightColView();
+      this.$el.append(rightCol.render().$el);
+    });
+
     Backbone.history.start({pushState:true});
-    
+
     //this.render();
   },
   
