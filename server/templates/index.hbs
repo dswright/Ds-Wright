@@ -38,27 +38,74 @@
   </body>
 </html>
 
-<script type="text/x-handlebars" id="post-template">
+<script type="text/template" id="post">
   <div class="post">
     <div class="post-header">
       <div class="author-name">
-        Dylan Wright
+      <%- author %>
       </div>
       <div class="time-ago">
-        3 days ago
+      <%- date %>
       </div>
     </div>
     <div class="post-title">
-      {{title}}
+      <%- title %>
     </div>
     <div class="post-image">
-      <img src="/images/posts/code-sn.png" />
+      <img src="<%- img %>" />
     </div>
     <div class="post-summary">
-      The summary of the article will go here.
+      <%- lead %>
     </div>
     <div class="post-footer">
-      <span>continue reading</span>
+      <span class="continue-reading">continue reading</span>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="full-post">
+  
+  <div id="full-post-header">
+    <div id="full-post-author">
+      Dylan Wright
+    </div>
+    <div id="full-post-date">
+      August 26th, 2015
+    </div>
+  </div>
+  <div id="full-post-image">
+    <img src="#" />
+  </div>
+  <div id="full-post-title">
+  Some title Here.
+  </div>
+  <div id="full-post-lead">
+
+  </div>
+
+
+  <div id="full-post">
+
+  <div 
+    <div class="post-header">
+      <div class="author-name">
+      author
+      </div>
+      <div class="time-ago">
+      date
+      </div>
+    </div>
+    <div class="post-title">
+      title
+    </div>
+    <div class="post-image">
+      <img src="" />
+    </div>
+    <div class="post-summary">
+      lead
+    </div>
+    <div class="post-footer">
+      <span class="continue-reading">continue reading</span>
     </div>
   </div>
 </script>

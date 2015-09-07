@@ -1,10 +1,13 @@
 var express = require('express');
 var path = require('path');
 var expressHbs = require('express-handlebars');
+var fs = require ('fs');
+var markdown = require("markdown").markdown;
+var glob = require('glob');
 
 var db = require('./db');
 
-// Middleware - not sure what these are doing.
+// Middleware
 var parser = require('body-parser'); //makes the req.body.json an available json object.
 
 var app = express();
@@ -24,8 +27,22 @@ app.use(parser.json()); //makes it so that the req.body is available as JSON aut
 // Serve static img, css, and js files from the client/dist directory..
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
+app.get('/post_source/:id', function(req, res) {
+  res.writeHead(200, {"Content-Type":"application/json"});
+  glob("server/source_data/post_data/1-*.MD", 'utf-8', function(err, files){ //the wildcard file name matching requires a module called 'glob'
+    console.log(files);
+    fs.readFile(files[0], 'utf-8', function(err, data) { //the first file name in the response will be the correct post file.
+      if (err) throw err;
+      var responseObj = {
+        markdown: markdown.toHTML(data),
+      }
+      res.end(JSON.stringify(responseObj)); //the response to the browser is the json object with the post html.
+    });
+  });
+});
+
 app.get("*", function(req, res) {
-  res.render("index"); //basically always render the same template. With the exception of static assets.
+  res.render("index"); //everything else goes to the same template and is handled by Backbone.
 });
 
 // If we are being run directly, run the server.

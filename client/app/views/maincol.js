@@ -1,21 +1,29 @@
 
 App.postView = Backbone.View.extend({
-  //template: Handlebars.compile($("#bio-template").html()),
+
+  events: { 'click .continue-reading': 'postClick' },
+  postClick: function() {
+    console.log('postClicked!');
+    app.router.navigate('post/13/123', {trigger: true});
+    //run a route redirect to the new route which will reload the main col with the blog post.
+  },
   render: function(){
-    var src = $("#post-template").html();
-    var template = Handlebars.compile(src);
-    var context = {title: "something"};
-    console.log(template(context));
-    console.log(this.model.attributes);
-    this.$el.html(template(context));
+    var template = _.template($("script#post").html());
+    this.$el.html(template(this.model.attributes));
+    return this;
+  }
+});
+
+App.fullPostView = Backbone.View.extend({
+  id: "full-post",
+  render: function() {
+    var template = _.template($("script#full-post").html());
+    this.$el.html(template(this.model.attributes));
     return this;
   }
 });
 
 App.mainColView = Backbone.View.extend({
-  initialize: function(){
-    console.log("initializing");
-  },
   className: "col-md-8",
   id: "main-col",
   render: function(){

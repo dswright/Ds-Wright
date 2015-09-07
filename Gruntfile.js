@@ -130,7 +130,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', [
+  grunt.registerTask('default', [
     // add your deploy tasks here
     'build', 'upload'
   ]);

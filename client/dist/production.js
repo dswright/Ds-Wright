@@ -16755,42 +16755,19 @@ window.App = Backbone.View.extend({
   initialize: function(){
     this.$el = $('body').find('#body-container');
 
-    console.log(this.$el);
-
+    //Create the router for the app. This will route the url to the correct view.
     this.router = new App.Router({el: this.$el});
 
+    //This router will automatically trigger the method associated with the current url in the router.
+    //Always append the same rightCol before the router function is run.
     this.router.on('route', function() {
       var rightCol = new App.rightColView();
       this.$el.append(rightCol.render().$el);
     });
 
+    //Begin tracking of urls to allow for use of the back button for users.
     Backbone.history.start({pushState:true});
-
-    //this.render();
   },
-  
-  render: function(){
-
-    //var mainCol = new App.mainColView();
-    //this.$el.find("#body-container").append(mainCol.render().$el);
-
-    // var rightCol = new App.rightColView();
-
-    // this.$el.find("#body-container").append(rightCol.render().$el);
-
-    
-    //var source = $("#post-template").html();
-    //var template = Handlebars.compile(source);
-    //var template2 = Handlebars.compile($("#bio-template").html());
-    //this.$el.html('<div>on the side</div>');
-    //$('#right-col').replaceWith(this.$el);
-    //so once it is appended this method can be used.. until then... what to do?
-    //this.$el.html('<div>another side</div>');
-
-    //console.log(this.template);
-    //this.$el.find("#main-col").html(template);
-    //this.$el.find("#right-col").html(template2);
-  }
 });
 
 
@@ -16800,76 +16777,109 @@ window.App = Backbone.View.extend({
 
 App.postCollection = Backbone.Collection.extend({
   initialize: function(){
-    this.model = App.post;
+    this.model = App.postModel;
     this.url = "json/posts.json";
   }
 });
-App.post = Backbone.Model.extend({
+App.postModel = Backbone.Model.extend({
 
+});
+
+App.fullPostModel = Backbone.Model.extend({
+  initialize: function(options){
+    this.postId = options.postId;
+    this.urlRoot = '/post_source/'+this.postId;
+  },
+  
 });
 App.Router = Backbone.Router.extend({
   initialize: function(options){ //options
-    this.$el = options.el;
+    this.$el = options.el; //make this.el the body-container
   },
 
   routes: {
-    'post/:id/:title': 'post',
+    'post/:id/*filename': 'post',
     '': 'index'
-   // 'create': 'create'
   },
 
-  // swapView: function(view){
-  //   this.$el.html(view.render().el);
-  // },
-
-  post: function(){
-    console.log("something different");
-  },
-
-  index: function(){
-
-    var mainCol = new App.mainColView();
+  post: function(postId){ //
+    console.log("in post!");
+    var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
     var mainColEl = mainCol.render().$el;
     this.$el.append(mainColEl);
 
-    var postCollection = new App.postCollection();
-    postCollection.fetch({
-      success: function(results) {
+    var fullPostModel = new App.fullPostModel({postId:postId});
 
-        for (var i=0; i<results.length; i++){
-          var postView = new App.postView({model: results.models[i]});
-          var postViewEl = postView.render().$el;
-          mainColEl.append(postViewEl);
-        }
-      }.bind(this)
+    fullPostModel.fetch({ //fetch the full JSON file of post data from the model.
+      success: function(results) {
+        console.log("RESULTS", fullPostModel);
+
+        //for now, fetch the post collection with every page load.
+        var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+        postCollection.fetch({
+          success: function(results) {
+            for (var i=0; i<results.length; i++){
+              if (results[i].id === postId) {
+                fullPostModel.set('') 
+                //author, date, title, picture, markdown
+                //load some kind of post-view footer?
+              }
+              mainColEl.append(postView.render().$el);
+
+              var fullPostView = new App.fullPostView({model: fullPostModel});
+              mainColEl.append(fullPostView.render().$el);
+            }
+          }
+        });
+
+        
+      }
     });
-    // var links = new Shortly.Links();
-    // var linksView = new Shortly.LinksView({ collection: links });
-    // this.swapView(linksView);
+
   },
 
-  // create: function(){
-  //   this.swapView(new Shortly.createLinkView());
-  // }
+  index: function(){
+    var mainCol = new App.mainColView(); //Renders an empty shell to be filled in.
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl); //append the mainCol to the body-container.
+
+    var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+    postCollection.fetch({
+      success: function(results) {
+        for (var i=0; i<results.length; i++){
+          var postView = new App.postView({model: results.models[i]});
+          mainColEl.append(postView.render().$el);
+        }
+      }
+    });
+  },
 });
 
 App.postView = Backbone.View.extend({
-  //template: Handlebars.compile($("#bio-template").html()),
+
+  events: { 'click .continue-reading': 'postClick' },
+  postClick: function() {
+    console.log('postClicked!');
+    app.router.navigate('post/13/123', {trigger: true});
+    //run a route redirect to the new route which will reload the main col with the blog post.
+  },
   render: function(){
-    var src = $("#post-template").html();
-    var template = Handlebars.compile(src);
-    var context = {title: "something"};
-    console.log(template(context));
-    console.log(this.model.attributes);
-    this.$el.html(template(context));
+    var template = _.template($("script#post").html());
+    this.$el.html(template(this.model.attributes));
+    return this;
+  }
+});
+
+App.fullPostView = Backbone.View.extend({
+  id: "full-post",
+  render: function() {
+    var template = _.template($("script#full-post").html());
+    this.$el.html(template(this.model.attributes));
     return this;
   }
 });
 
 App.mainColView = Backbone.View.extend({
-  initialize: function(){
-    console.log("initializing");
-  },
   className: "col-md-8",
   id: "main-col",
   render: function(){

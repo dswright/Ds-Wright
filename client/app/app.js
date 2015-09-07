@@ -3,42 +3,19 @@ window.App = Backbone.View.extend({
   initialize: function(){
     this.$el = $('body').find('#body-container');
 
-    console.log(this.$el);
-
+    //Create the router for the app. This will route the url to the correct view.
     this.router = new App.Router({el: this.$el});
 
+    //This router will automatically trigger the method associated with the current url in the router.
+    //Always append the same rightCol before the router function is run.
     this.router.on('route', function() {
       var rightCol = new App.rightColView();
       this.$el.append(rightCol.render().$el);
     });
 
+    //Begin tracking of urls to allow for use of the back button for users.
     Backbone.history.start({pushState:true});
-
-    //this.render();
   },
-  
-  render: function(){
-
-    //var mainCol = new App.mainColView();
-    //this.$el.find("#body-container").append(mainCol.render().$el);
-
-    // var rightCol = new App.rightColView();
-
-    // this.$el.find("#body-container").append(rightCol.render().$el);
-
-    
-    //var source = $("#post-template").html();
-    //var template = Handlebars.compile(source);
-    //var template2 = Handlebars.compile($("#bio-template").html());
-    //this.$el.html('<div>on the side</div>');
-    //$('#right-col').replaceWith(this.$el);
-    //so once it is appended this method can be used.. until then... what to do?
-    //this.$el.html('<div>another side</div>');
-
-    //console.log(this.template);
-    //this.$el.find("#main-col").html(template);
-    //this.$el.find("#right-col").html(template2);
-  }
 });
 
 

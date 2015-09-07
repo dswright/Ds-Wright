@@ -1,45 +1,62 @@
 App.Router = Backbone.Router.extend({
   initialize: function(options){ //options
-    this.$el = options.el;
+    this.$el = options.el; //make this.el the body-container
   },
 
   routes: {
-    'post/:id/:title': 'post',
+    'post/:id/*filename': 'post',
     '': 'index'
-   // 'create': 'create'
   },
 
-  // swapView: function(view){
-  //   this.$el.html(view.render().el);
-  // },
-
-  post: function(){
-    console.log("something different");
-  },
-
-  index: function(){
-
-    var mainCol = new App.mainColView();
+  post: function(postId){ //
+    console.log("in post!");
+    var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
     var mainColEl = mainCol.render().$el;
     this.$el.append(mainColEl);
 
-    var postCollection = new App.postCollection();
-    postCollection.fetch({
-      success: function(results) {
+    var fullPostModel = new App.fullPostModel({postId:postId});
 
-        for (var i=0; i<results.length; i++){
-          var postView = new App.postView({model: results.models[i]});
-          var postViewEl = postView.render().$el;
-          mainColEl.append(postViewEl);
-        }
-      }.bind(this)
+    fullPostModel.fetch({ //fetch the full JSON file of post data from the model.
+      success: function(results) {
+        console.log("RESULTS", fullPostModel);
+
+        //for now, fetch the post collection with every page load.
+        var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+        postCollection.fetch({
+          success: function(results) {
+            for (var i=0; i<results.length; i++){
+              if (results[i].id === postId) {
+                fullPostModel.set('') 
+                //author, date, title, picture, markdown
+                //load some kind of post-view footer?
+              }
+              mainColEl.append(postView.render().$el);
+
+              var fullPostView = new App.fullPostView({model: fullPostModel});
+              mainColEl.append(fullPostView.render().$el);
+            }
+          }
+        });
+
+        
+      }
     });
-    // var links = new Shortly.Links();
-    // var linksView = new Shortly.LinksView({ collection: links });
-    // this.swapView(linksView);
+
   },
 
-  // create: function(){
-  //   this.swapView(new Shortly.createLinkView());
-  // }
+  index: function(){
+    var mainCol = new App.mainColView(); //Renders an empty shell to be filled in.
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl); //append the mainCol to the body-container.
+
+    var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+    postCollection.fetch({
+      success: function(results) {
+        for (var i=0; i<results.length; i++){
+          var postView = new App.postView({model: results.models[i]});
+          mainColEl.append(postView.render().$el);
+        }
+      }
+    });
+  },
 });
