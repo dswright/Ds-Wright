@@ -42,7 +42,7 @@
   <div class="post">
     <div class="post-header">
       <div class="author-name">
-      <%- author %>
+        Dylan Wright
       </div>
       <div class="time-ago">
       <%- date %>
@@ -64,48 +64,26 @@
 </script>
 
 <script type="text/template" id="full-post">
-  
-  <div id="full-post-header">
-    <div id="full-post-author">
-      Dylan Wright
-    </div>
-    <div id="full-post-date">
-      August 26th, 2015
-    </div>
-  </div>
-  <div id="full-post-image">
-    <img src="#" />
-  </div>
-  <div id="full-post-title">
-  Some title Here.
-  </div>
-  <div id="full-post-lead">
-
-  </div>
-
-
   <div id="full-post">
-
-  <div 
-    <div class="post-header">
-      <div class="author-name">
-      author
+    <div id="full-post-header">
+      <div id="full-post-author">
+        Dylan Wright
       </div>
-      <div class="time-ago">
-      date
+      <div id="full-post-date">
+        <%- date %>
       </div>
     </div>
-    <div class="post-title">
-      title
+    <div id="full-post-title">
+      <%- title %>
     </div>
-    <div class="post-image">
-      <img src="" />
+    <div id="full-post-image">
+      <img src="<%- img %>" width="100%" />
     </div>
-    <div class="post-summary">
-      lead
+    <div id="full-post-content">
+      <%- markdown %>
     </div>
-    <div class="post-footer">
-      <span class="continue-reading">continue reading</span>
+    <div id="full-post-footer">
+      footer stuff here
     </div>
   </div>
 </script>

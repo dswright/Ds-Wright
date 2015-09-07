@@ -165,6 +165,14 @@
 .post-footer span{
   cursor: pointer;
 }
+/* End of Post Styles */
+
+
+/* Start of Full Post Styles*/
+#full-post-title {
+  font-size: 2em;
+}
+
 
 /* implement ClearFix for floating divs */
 .clearfix:after {

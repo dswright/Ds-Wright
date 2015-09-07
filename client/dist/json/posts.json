@@ -1,7 +1,6 @@
   [
     {
       "id": "1",
-      "author": "Dylan Wright",
       "title": "How to direct a custom domain to a Heroku app",
       "date": "August 22nd, 2014",
       "img": "http://ds-wright.com/images/posts/code-sn.png",
@@ -11,7 +10,6 @@
     },
     {
       "id":"2",
-      "author": "Dylan Wright",
       "title": "",
       "date": "August 22nd, 2014",
       "img": "http://ds-wright.com/images/posts/code-sn.png",

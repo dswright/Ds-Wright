@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         ]
       },
       css: {
-        files: 'client/styles/*.css',
+        files: 'client/dist/styles/styles.css',
         tasks: ['cssmin']
       }
     },

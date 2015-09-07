@@ -18,22 +18,23 @@ App.Router = Backbone.Router.extend({
 
     fullPostModel.fetch({ //fetch the full JSON file of post data from the model.
       success: function(results) {
-        console.log("RESULTS", fullPostModel);
-
         //for now, fetch the post collection with every page load.
         var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
         postCollection.fetch({
           success: function(results) {
             for (var i=0; i<results.length; i++){
-              if (results[i].id === postId) {
-                fullPostModel.set('') 
-                //author, date, title, picture, markdown
-                //load some kind of post-view footer?
-              }
-              mainColEl.append(postView.render().$el);
+              if (results.models[i].id === postId) {
 
-              var fullPostView = new App.fullPostView({model: fullPostModel});
-              mainColEl.append(fullPostView.render().$el);
+                var postAttributes = results.models[i].attributes;
+                fullPostModel.set({
+                  date: postAttributes.date,
+                  title: postAttributes.title,
+                  img: postAttributes.img,
+                });
+                var fullPostView = new App.fullPostView({model: fullPostModel});
+                mainColEl.append(fullPostView.render().$el);
+              }
+              
             }
           }
         });
