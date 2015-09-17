@@ -2,7 +2,6 @@
   <head>
     <meta charset="utf-8">
     <title>Dylan Wright's Blog</title>
-    <script>console.log();</script>
     <script src="/production.js"></script>
     <script>
     $(function(){
@@ -27,13 +26,11 @@
     </div>
 
     <section id="footer" class="col-md-12">
-      <div id="copyright"></div>
-      <div id="backlink">Dylan Wright</div>
-      <div id="social-links">
-        <div>twitter</div>
-        <div>linkedin</div>
-        <div>github</div>
+      
+      <div id="social-links" class="clearfix">
+        <div>Created by <a href="/dylan-wright">Dylan Wright</a> - <a href="https://twitter.com/dswright88">twitter</a> - <a href="https://www.linkedin.com/in/dylanswright">linkedin</a> - <a href="https://github.com/dswright">github</a></div>
       </div>
+      <div id="copyright">&copy; ds-wright.com</div>
     </section>
   </body>
 </html>
@@ -48,23 +45,28 @@
       <%- date %>
       </div>
     </div>
-    <div class="post-title">
-      <%- title %>
-    </div>
+    <h3>
+      <a href="/post/1/<%- url %>/"><%- title %></a>
+    </h3>
     <div class="post-image">
-      <img src="<%- img %>" />
+      <a href="/post/1/<%- url %>/">
+        <img src="<%- img %>" />
+      </a>
     </div>
     <div class="post-summary">
-      <%- lead %>
+      <a href="/post/1/<%- url %>/"><%- lead %></a>
     </div>
     <div class="post-footer">
-      <span class="continue-reading">continue reading</span>
+      <a href="/post/1/<%- url %>">
+        <span class="continue-reading">
+          continue reading
+        </span>
+      </a>
     </div>
   </div>
 </script>
 
 <script type="text/template" id="full-post">
-  <div id="full-post">
     <div id="full-post-header">
       <div id="full-post-author">
         Dylan Wright
@@ -73,19 +75,17 @@
         <%- date %>
       </div>
     </div>
-    <div id="full-post-title">
+    <h2>
       <%- title %>
-    </div>
+    </h2>
     <div id="full-post-image">
       <img src="<%- img %>" width="100%" />
     </div>
     <div id="full-post-content">
-      <%- markdown %>
+      
     </div>
     <div id="full-post-footer">
-      footer stuff here
     </div>
-  </div>
 </script>
 
 <script type="text/x-handlebars-template" id="bio-template">

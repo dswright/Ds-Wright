@@ -9,7 +9,7 @@ App.Router = Backbone.Router.extend({
   },
 
   post: function(postId){ //
-    console.log("in post!");
+    console.log("in router post");
     var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
     var mainColEl = mainCol.render().$el;
     this.$el.append(mainColEl);
@@ -24,22 +24,21 @@ App.Router = Backbone.Router.extend({
           success: function(results) {
             for (var i=0; i<results.length; i++){
               if (results.models[i].id === postId) {
-
                 var postAttributes = results.models[i].attributes;
                 fullPostModel.set({
                   date: postAttributes.date,
                   title: postAttributes.title,
-                  img: postAttributes.img,
+                  img: postAttributes.img
                 });
+                console.log("full post model", fullPostModel.attributes);
                 var fullPostView = new App.fullPostView({model: fullPostModel});
-                mainColEl.append(fullPostView.render().$el);
+                var $postViewEl = fullPostView.render().$el;
+                $postViewEl.find("#full-post-content").append(fullPostModel.get('markdown'));
+                mainColEl.append($postViewEl);
               }
-              
             }
           }
         });
-
-        
       }
     });
 

@@ -1,12 +1,12 @@
   [
     {
       "id": "1",
-      "title": "How to direct a custom domain to a Heroku app",
-      "date": "August 22nd, 2014",
-      "img": "http://ds-wright.com/images/posts/code-sn.png",
-      "lead": "See a how to point your custom domain at a Heroku app with any hosting provider.",
-      "url": "something_here",
-      "categories": ["cat1, cat2"]
+      "title": "Direct a custom domain name to a Heroku App in 5 easy steps",
+      "date": "September 16th, 2015",
+      "img": "http://blog.webs.com/wp-content/uploads/2012/01/IMAGE_JPEG.jpg",
+      "lead": "See a how to point your custom domain to a Heroku app with any hosting provider.",
+      "url": "custom-domain-on-Heroku",
+      "categories": ["Heroku"]
     },
     {
       "id":"2",

@@ -120,7 +120,7 @@
   padding-left:10em;
   padding-right:10em;
   padding-top:2em;
-  margin-bottom:5em;
+  margin-bottom:2em;
 }
 
 
@@ -131,6 +131,15 @@
 .post {
   padding-bottom:2em;
   border-bottom: 1px solid gray;
+}
+
+.post a {
+  color:black;
+}
+
+.post a:hover {
+  color:black;
+  text-decoration: none;
 }
 
 .post-header {
@@ -148,11 +157,20 @@
 }
 
 .post-image img{
-  max-width:100%;
+  width:100%;
 }
 
-.post-title {
-  font-size: 2em;
+.post h3 {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.continue-reading {
+  color:green;
+}
+
+.continue-reading:hover {
+  text-decoration: underline;
 }
 
 .post-summary {
@@ -169,8 +187,50 @@
 
 
 /* Start of Full Post Styles*/
-#full-post-title {
-  font-size: 2em;
+
+#full-post-image {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#full-post-footer {
+  border-bottom: 1px gray solid;
+}
+
+#full-post-content img {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+
+/*Footer Styles*/
+
+#footer {
+  background-color: #fafafa;
+  padding:30px;
+  color: gray;
+  margin:auto;
+  display: block;
+}
+
+#footer a {
+  color:gray;
+  text-decoration:underline;
+
+}
+
+#social-links div {
+  float:left;
+  margin-left:15px;
+}
+
+#copyright {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+#social-links {
+  display: block;
 }
 
 

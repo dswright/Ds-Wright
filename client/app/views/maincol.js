@@ -14,6 +14,7 @@ App.postView = Backbone.View.extend({
   }
 });
 
+//view for the individual post page.
 App.fullPostView = Backbone.View.extend({
   id: "full-post",
   render: function() {
@@ -27,8 +28,6 @@ App.mainColView = Backbone.View.extend({
   className: "col-md-8",
   id: "main-col",
   render: function(){
-    // var postView = new App.postView();
-    // this.$el.append(postView.render().$el);
     return this;
   }
 });
