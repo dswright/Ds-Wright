@@ -16760,10 +16760,10 @@ window.App = Backbone.View.extend({
 
     //This router will automatically trigger the method associated with the current url in the router.
     //Always append the same rightCol before the router function is run.
-    this.router.on('route', function() {
-      var rightCol = new App.rightColView();
-      this.$el.append(rightCol.render().$el);
-    });
+    // this.router.on('route', function() {
+    //   var rightCol = new App.rightColView();
+    //   this.$el.append(rightCol.render().$el);
+    // });
 
     //Begin tracking of urls to allow for use of the back button for users.
     Backbone.history.start({pushState:true});
@@ -16778,7 +16778,7 @@ window.App = Backbone.View.extend({
 App.postCollection = Backbone.Collection.extend({
   initialize: function(){
     this.model = App.postModel;
-    this.url = "/json/posts.json";
+    this.url = "/json/posts/";
   }
 });
 App.postModel = Backbone.Model.extend({
@@ -16799,7 +16799,36 @@ App.Router = Backbone.Router.extend({
 
   routes: {
     'post/:id/*filename': 'post',
+    'category/:category/': 'category',
     '': 'index'
+  },
+
+  category: function(category){
+    console.log("rendering category!");
+    var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl);
+
+    var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+    postCollection.fetch({
+      success: function(results) {
+        console.log("category results", results);
+
+        //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+        var rightCol = new App.rightColView(results);
+        var rightColEl = rightCol.render().$el;
+        this.$el.append(rightColEl);
+
+        for (var k=0; k<results.length; k++){
+          if (results.models[k].attributes.categories.indexOf(category) !== -1) {
+            //append each post summary to the main view.
+            var postView = new App.postView({model: results.models[k]});
+            mainColEl.append(postView.render().$el);
+          }
+        }
+      }.bind(this)
+    })
+
   },
 
   post: function(postId){ //
@@ -16807,6 +16836,8 @@ App.Router = Backbone.Router.extend({
     var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
     var mainColEl = mainCol.render().$el;
     this.$el.append(mainColEl);
+
+    
 
     var fullPostModel = new App.fullPostModel({postId:postId});
 
@@ -16816,9 +16847,16 @@ App.Router = Backbone.Router.extend({
         var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
         postCollection.fetch({
           success: function(results) {
-            for (var i=0; i<results.length; i++){
-              if (results.models[i].id === postId) {
-                var postAttributes = results.models[i].attributes;
+
+            //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+            var rightCol = new App.rightColView(results);
+            var rightColEl = rightCol.render().$el;
+            this.$el.append(rightColEl);
+
+            //now append the main col.
+            for (var k=0; k<results.length; k++){
+              if (results.models[k].id === postId) {
+                var postAttributes = results.models[k].attributes;
                 fullPostModel.set({
                   date: postAttributes.date,
                   title: postAttributes.title,
@@ -16831,9 +16869,9 @@ App.Router = Backbone.Router.extend({
                 mainColEl.append($postViewEl);
               }
             }
-          }
+          }.bind(this)
         });
-      }
+      }.bind(this)
     });
 
   },
@@ -16846,11 +16884,20 @@ App.Router = Backbone.Router.extend({
     var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
     postCollection.fetch({
       success: function(results) {
-        for (var i=0; i<results.length; i++){
-          var postView = new App.postView({model: results.models[i]});
+
+        //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+        var rightCol = new App.rightColView(results);
+        var rightColEl = rightCol.render().$el;
+        this.$el.append(rightColEl);
+
+        for (var k=0; k<results.length; k++){
+          //append each post summary to the main view.
+          var postView = new App.postView({model: results.models[k]});
           mainColEl.append(postView.render().$el);
+
         }
-      }
+
+      }.bind(this)
     });
   },
 });
@@ -16890,42 +16937,96 @@ App.mainColView = Backbone.View.extend({
 App.sidebarBioView = Backbone.View.extend({
   //template: Handlebars.compile($("#bio-template").html()),
   render: function(){
-    var source = $("#bio-template").html();
-    var template = Handlebars.compile(source);
+    // var source = $("#bio-template").html();
+    var template = _.template($("script#bio-template").html());
     this.$el.html(template);
+    return this;
+  }
+});
+
+App.categoryLinkView = Backbone.View.extend({
+  className: "category-link",
+  initialize: function(category) {
+    this.category = category;
+  },
+  render: function() {
+    this.$el.html("<a href='/category/"+this.category+"/'>"+this.category+"</a>");
     return this;
   }
 });
 
 App.sidebarCategoriesView = Backbone.View.extend({
-  render: function(){
-    var source = $("#sidebar-categories").html();
-    var template = Handlebars.compile(source);
+  initialize: function(postModels) {
+    this.postModels = postModels;
+  },
+  getCategories: function(results){
+    //get all of the categories from the JSON file.
+    var categories = [];
+    for (var i=0; i<results.models.length; i++){
+      for (var j=0; j<results.models[i].get('categories').length; j++) {
+        if (categories.indexOf(results.models[i].get('categories')[j])) {
+          categories.push(results.models[i].get('categories')[j]);
+        }
+      }
+    }
+    return categories
+  },
+  render: function() {
+    // var source = $("#sidebar-categories").html();
+    var template = _.template($("script#sidebar-categories").html());
     this.$el.html(template);
-    return this;
-  }
-});
-
-App.sidebarProjectsView = Backbone.View.extend({
-  render: function(){
-    var source = $("#sidebar-projects").html();
-    var template = Handlebars.compile(source);
-    this.$el.html(template);
+    var $categoryCloud = this.$el.find('#category-cloud');
+    var categories = this.getCategories(this.postModels);
+    for (var i=0; i<categories.length; i++){
+      var categoryView = new App.categoryLinkView(categories[i]);
+      $categoryCloud.append(categoryView.render().$el);
+    }
     return this;
   }
 });
 
 App.sidebarPostsView = Backbone.View.extend({
+  initialize: function(postModels){
+    this.postModels = postModels
+  },
+
   render: function(){
-    var source = $("#sidebar-posts").html();
-    var template = Handlebars.compile(source);
+    // var source = $("#sidebar-posts").html();
+    var template = _.template($("script#sidebar-posts").html())
+    this.$el.html(template);
+    console.log("post models", this.postModels);
+    for(var i=0;i<this.postModels.models.length;i++){
+      var postTitle = new App.sidebarPostTitle({model:this.postModels.models[i]});
+      this.$el.find('#sidebar-posts').append(postTitle.render().$el);
+    }
+    return this;
+  }
+});
+
+App.sidebarPostTitle = Backbone.View.extend({
+  className: "sidebar-post",
+  render: function() {
+    var template = _.template($("script#sidebar-post-title").html());
+    console.log(this.model.attributes);
+    console.log("updating");
+    this.$el.html(template(this.model.attributes));
+    return this;
+  }
+})
+
+App.sidebarProjectsView = Backbone.View.extend({
+  render: function(){
+    var template = _.template($("script#sidebar-projects").html());
     this.$el.html(template);
     return this;
   }
 });
 
+
+
 App.rightColView = Backbone.View.extend({
-  initialize: function(){
+  initialize: function(postModels){
+    this.postModels = postModels;
   },
   className: "col-md-4",
   id: "right-col",
@@ -16933,13 +17034,13 @@ App.rightColView = Backbone.View.extend({
     var sidebarBioView = new App.sidebarBioView();
     this.$el.append(sidebarBioView.render().$el);
 
-    var sidebarCategoriesView = new App.sidebarCategoriesView();
+    var sidebarCategoriesView = new App.sidebarCategoriesView(this.postModels);
     this.$el.append(sidebarCategoriesView.render().$el);
 
     var sidebarProjectsView = new App.sidebarProjectsView();
     this.$el.append(sidebarProjectsView.render().$el);
 
-    var sidebarPostsView = new App.sidebarPostsView();
+    var sidebarPostsView = new App.sidebarPostsView(this.postModels);
     this.$el.append(sidebarPostsView.render().$el);
 
     return this;

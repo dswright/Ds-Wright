@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get('/post_source/:id', function(req, res) {
   res.writeHead(200, {"Content-Type":"application/json"});
-  glob("server/source_data/post_data/1-*.MD", 'utf-8', function(err, files){ //the wildcard file name matching requires a module called 'glob'
+  glob("server/source_data/post_data/"+req.params.id+"-*.MD", 'utf-8', function(err, files){ //the wildcard file name matching requires a module called 'glob'
     console.log(files);
     fs.readFile(files[0], 'utf-8', function(err, data) { //the first file name in the response will be the correct post file.
       if (err) throw err;
@@ -38,6 +38,12 @@ app.get('/post_source/:id', function(req, res) {
       }
       res.end(JSON.stringify(responseObj)); //the response to the browser is the json object with the post html.
     });
+  });
+});
+
+app.get('/json/posts/', function(req, res) {
+  fs.readFile("server/source_data/posts.json", function(err, data) {
+    res.send(data);
   });
 });
 
@@ -50,4 +56,3 @@ if (!module.parent) {
   app.listen(app.get("port"));
   console.log("Listening on", app.get("port"));
 }
-

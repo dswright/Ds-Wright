@@ -14,11 +14,11 @@
   <body>
 
     <section id="header" class="col-md-12">
-      <div id="logo">DS Wright</div>
+      <div id="logo"><a href="/">DS Wright</a></div>
       <div id="navigation">
-        <div>BLOG</div>
-        <div>PROJECTS</div>
-        <div>DYLAN WRIGHT</div>
+        <div><a href="/">BLOG</a></div>
+        <!-- <div>PROJECTS</div>
+        <div>DYLAN WRIGHT</div> -->
       </div>
     </section>
 
@@ -28,12 +28,23 @@
     <section id="footer" class="col-md-12">
       
       <div id="social-links" class="clearfix">
-        <div>Created by <a href="/dylan-wright">Dylan Wright</a> - <a href="https://twitter.com/dswright88">twitter</a> - <a href="https://www.linkedin.com/in/dylanswright">linkedin</a> - <a href="https://github.com/dswright">github</a></div>
+        <div>Created by <!-- <a href="/dylan-wright"> -->Dylan Wright<!-- </a> --> - <a href="https://twitter.com/dswright88">twitter</a> - <a href="https://www.linkedin.com/in/dylanswright">linkedin</a> - <a href="https://github.com/dswright">github</a></div>
       </div>
-      <div id="copyright">&copy; ds-wright.com</div>
+      <div id="copyright">&copy;2015 ds-wright.com</div>
     </section>
   </body>
 </html>
+
+<script type="text/template" id="sidebar-post-title">
+  <a href="/post/<%- id %>/<%- url %>/">
+    <span class="sidebar-post-title">
+       <%- title %>
+    </span>
+    <span class="sidebar-post-date">
+      <%- date %>
+    </span>
+  </a>
+</script>
 
 <script type="text/template" id="post">
   <div class="post">
@@ -57,7 +68,7 @@
       <a href="/post/1/<%- url %>/"><%- lead %></a>
     </div>
     <div class="post-footer">
-      <a href="/post/1/<%- url %>">
+      <a href="/post/1/<%- url %>/">
         <span class="continue-reading">
           continue reading
         </span>
@@ -67,30 +78,30 @@
 </script>
 
 <script type="text/template" id="full-post">
-    <div id="full-post-header">
-      <div id="full-post-author">
-        Dylan Wright
-      </div>
-      <div id="full-post-date">
-        <%- date %>
-      </div>
+  <div id="full-post-header">
+    <div id="full-post-author">
+      Dylan Wright
     </div>
-    <h2>
-      <%- title %>
-    </h2>
-    <div id="full-post-image">
-      <img src="<%- img %>" width="100%" />
+    <div id="full-post-date">
+      <%- date %>
     </div>
-    <div id="full-post-content">
-      
-    </div>
-    <div id="full-post-footer">
-    </div>
+  </div>
+  <h2>
+    <%- title %>
+  </h2>
+  <div id="full-post-image">
+    <img src="<%- img %>" width="100%" />
+  </div>
+  <div id="full-post-content">
+    
+  </div>
+  <div id="full-post-footer">
+  </div>
 </script>
 
-<script type="text/x-handlebars-template" id="bio-template">
+<script type="text/template" id="bio-template">
   <div class="sidebar-title">
-  DYLAN WRIGHT
+    DYLAN WRIGHT
   </div>
   <div id="bio">
     <div id="headshot">
@@ -98,56 +109,26 @@
     </div>
     <div id="self-summary">
       <p>
-        Learn more about <span id="bio-link">Dylan Wright</span>
+        Student at <a href="http://makersquare.com">MakerSquare</a>
       </p>
     </div>
   </div>
 </script>
-<script type="text/x-handlebars-template" id="id">
-okok{{blah}}
-</script>
 
-<script type="text/x-handlebars-template" id="sidebar-categories">
+<script type="text/template" id="sidebar-categories">
   <div class="sidebar-title">FEATURED TAGS</div>
   <div id="category-cloud" class="clearfix">
-    <div class="category-link">Javascript</div>
-    <div class="category-link">Sample Tag</div>
-    <div class="category-link">Programming Etiquette</div>
-    <div class="category-link">Breaking line</div>           
   </div>
 </script>
 
-<script type="text/x-handlebars-template" id="sidebar-posts">
+<script type="text/template" id="sidebar-posts">
   <div class="sidebar-title">POSTS</div>
   <div id="sidebar-posts">
-    <div class="sidebar-post">
-      <div class="sidebar-post-title">
-        Sample Post Title
-      </div>
-      <div class="sidebar-post-date">
-        August 19th, 2015
-      </div>
-    </div>
-    <div class="sidebar-post">
-      <div class="sidebar-post-title">
-        Sample Post Title
-      </div>
-      <div class="sidebar-post-date">
-        August 19th, 2015
-      </div>
-    </div>
-    <div class="sidebar-post">
-      <div class="sidebar-post-title">
-        Sample Post Title
-      </div>
-      <div class="sidebar-post-date">
-        August 19th, 2015
-      </div>
-    </div>
+    
   </div>
 </script>
 
-<script type="text/x-handlebars-template" id="sidebar-projects">
+<script type="text/template" id="sidebar-projects">
   <div class="sidebar-title">PROJECTS</div>
   <div id="sidebar-projects">
     <div class="sidebar-project">Sample Project</div>

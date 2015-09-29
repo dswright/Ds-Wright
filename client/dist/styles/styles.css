@@ -9,11 +9,18 @@
   border-bottom: 1px solid gray;
 }
 
+#header a {
+  color:#333;
+}
+#header a:hover {
+  text-decoration: none;
+}
+
 #navigation {
   float: left;
   margin-left: 2em;
   font-size: 14px;
-  margin-top:0.9em;
+  margin-top:0.78em;
 }
 
 #navigation div {
@@ -46,6 +53,15 @@
   padding-top:2em;
 }
 
+#right-col a {
+  color: #333;
+  text-decoration: none;
+}
+
+#right-col a:hover {
+  color:green;
+}
+
 #bio {
   padding-top:1em;
   padding-left:6em;
@@ -68,7 +84,7 @@
 #category-cloud {
   margin-bottom: 2em;
 }
-.category-link {
+.category-link a {
   border: 1px solid gray;
   background-color: #FFF;
   float:left;
@@ -81,7 +97,8 @@
   border-radius:0.5em;
 }
 
-.category-link:hover {
+
+.category-link a:hover {
   border: 1px solid green;
   color: green;
   cursor: pointer;
@@ -199,7 +216,6 @@
 
 #full-post-content img {
   max-width: 100%;
-  cursor: pointer;
 }
 
 
