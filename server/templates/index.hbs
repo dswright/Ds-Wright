@@ -12,21 +12,15 @@
     <link rel="stylesheet" type="text/css" href="/styles/styles-min.css">
   </head>
   <body>
-
     <section id="header" class="col-md-12">
       <div id="logo"><a href="/">DS Wright</a></div>
       <div id="navigation">
         <div><a href="/">BLOG</a></div>
-        <!-- <div>PROJECTS</div>
-        <div>DYLAN WRIGHT</div> -->
       </div>
     </section>
-
     <div id="body-container">
     </div>
-
     <section id="footer" class="col-md-12">
-      
       <div id="social-links" class="clearfix">
         <div>Created by <!-- <a href="/dylan-wright"> -->Dylan Wright<!-- </a> --> - <a href="https://twitter.com/dswright88">twitter</a> - <a href="https://www.linkedin.com/in/dylanswright">linkedin</a> - <a href="https://github.com/dswright">github</a></div>
       </div>
@@ -34,17 +28,6 @@
     </section>
   </body>
 </html>
-
-<script type="text/template" id="sidebar-post-title">
-  <a href="/post/<%- id %>/<%- url %>/">
-    <span class="sidebar-post-title">
-       <%- title %>
-    </span>
-    <span class="sidebar-post-date">
-      <%- date %>
-    </span>
-  </a>
-</script>
 
 <script type="text/template" id="post">
   <div class="post">
@@ -105,7 +88,7 @@
   </div>
   <div id="bio">
     <div id="headshot">
-      <img src="/images/dylan-wright.png" />
+      <img src="/images/dylan-wright.jpg" />
     </div>
     <div id="self-summary">
       <p>
@@ -123,9 +106,18 @@
 
 <script type="text/template" id="sidebar-posts">
   <div class="sidebar-title">POSTS</div>
-  <div id="sidebar-posts">
-    
-  </div>
+  <div id="sidebar-posts"></div>
+</script>
+
+<script type="text/template" id="sidebar-post-title">
+  <a href="/post/<%- id %>/<%- url %>/">
+    <span class="sidebar-post-title">
+       <%- title %>
+    </span>
+    <span class="sidebar-post-date">
+      <%- date %>
+    </span>
+  </a>
 </script>
 
 <script type="text/template" id="sidebar-projects">

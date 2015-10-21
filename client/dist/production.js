@@ -16964,7 +16964,7 @@ App.sidebarCategoriesView = Backbone.View.extend({
     var categories = [];
     for (var i=0; i<results.models.length; i++){
       for (var j=0; j<results.models[i].get('categories').length; j++) {
-        if (categories.indexOf(results.models[i].get('categories')[j])) {
+        if (categories.indexOf(results.models[i].get('categories')[j]) === -1) {
           categories.push(results.models[i].get('categories')[j]);
         }
       }
