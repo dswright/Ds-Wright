@@ -161,7 +161,6 @@
 }
 
 
-
 /* project titles in the right col */
 #sidebar-projects {
   margin-left: 0.5em;
@@ -174,7 +173,6 @@
   padding-bottom: 1em;
   padding-top: 1em;
 }
-
 
 
 /* post styles in right col */
@@ -194,6 +192,7 @@
 
 .post-header {
   font-size: 1em;
+  margin-bottom: 0.5em;
 }
 
 .author-name: {
@@ -202,25 +201,13 @@
 .time-ago {
 }
 
-.post-header {
-  margin-bottom: 0.5em;
-}
-
-.post-image img{
-  width: 100%;
-}
-
 .post h3 {
   font-weight: normal;
   cursor: pointer;
 }
 
-.continue-reading {
-  color: green;
-}
-
-.continue-reading:hover {
-  text-decoration: underline;
+.post-image img{
+  width: 100%;
 }
 
 .post-summary {
@@ -232,6 +219,14 @@
 
 .post-footer span{
   cursor: pointer;
+}
+
+.continue-reading {
+  color: green;
+}
+
+.continue-reading:hover {
+  text-decoration: underline;
 }
 
 
