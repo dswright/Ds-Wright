@@ -55,10 +55,8 @@ App.sidebarPostsView = Backbone.View.extend({
   },
 
   render: function(){
-    // var source = $("#sidebar-posts").html();
     var template = _.template($("script#sidebar-posts").html())
     this.$el.html(template);
-    console.log("post models", this.postModels);
     for(var i=0;i<this.postModels.models.length;i++){
       var postTitle = new App.sidebarPostTitle({model:this.postModels.models[i]});
       this.$el.find('#sidebar-posts').append(postTitle.render().$el);
@@ -71,26 +69,41 @@ App.sidebarPostTitle = Backbone.View.extend({
   className: "sidebar-post",
   render: function() {
     var template = _.template($("script#sidebar-post-title").html());
-    console.log(this.model.attributes);
-    console.log("updating");
     this.$el.html(template(this.model.attributes));
     return this;
   }
 })
 
 App.sidebarProjectsView = Backbone.View.extend({
+  initialize: function(projectModels){
+    this.projectModels = projectModels;
+  },
+
   render: function(){
-    var template = _.template($("script#sidebar-projects").html());
+    var template = _.template($("script#sidebar-projects").html())
     this.$el.html(template);
+    for(var i=0;i<this.projectModels.models.length;i++){
+      var projectTitle = new App.sidebarProjectTitle({model:this.projectModels.models[i]});
+      this.$el.find('#sidebar-projects').append(projectTitle.render().$el);
+    }
+    return this;
+  }
+});
+
+App.sidebarProjectTitle = Backbone.View.extend({
+  className: "sidebar-project",
+  render: function() {
+    var template = _.template($("script#sidebar-project-title").html());
+    this.$el.html(template(this.model.attributes));
     return this;
   }
 });
 
 
-
 App.rightColView = Backbone.View.extend({
-  initialize: function(postModels){
+  initialize: function(postModels, projectModels){
     this.postModels = postModels;
+    this.projectModels = projectModels;
   },
   className: "col-md-4",
   id: "right-col",
@@ -101,11 +114,11 @@ App.rightColView = Backbone.View.extend({
     var sidebarCategoriesView = new App.sidebarCategoriesView(this.postModels);
     this.$el.append(sidebarCategoriesView.render().$el);
 
-    var sidebarProjectsView = new App.sidebarProjectsView();
-    this.$el.append(sidebarProjectsView.render().$el);
-
     var sidebarPostsView = new App.sidebarPostsView(this.postModels);
     this.$el.append(sidebarPostsView.render().$el);
+
+    var sidebarProjectsView = new App.sidebarProjectsView(this.projectModels);
+    this.$el.append(sidebarProjectsView.render().$el);
 
     return this;
   }

@@ -1,5 +1,7 @@
 App.postModel = Backbone.Model.extend({
+});
 
+App.projectModel = Backbone.Model.extend({
 });
 
 App.fullPostModel = Backbone.Model.extend({

@@ -1,6 +1,13 @@
+/* organization of this file: 
+  each major section of the blog is given its own css section.
+  each section is headed by a comment. A new section begins with a new comment.
+  each section has two lines proceeding the section comment.
+  the order of the css within each section is based on the order in which the css appears in the section
+*/
 
- /* HEADER & NAVIGATION STYLES */
-#header {
+
+/* header and navigation styles */
+ #header {
   font-family: Geneva,Verdana,sans-serif;
   margin:auto;
   height: 4em;
@@ -12,6 +19,7 @@
 #header a {
   color:#333;
 }
+
 #header a:hover {
   text-decoration: none;
 }
@@ -42,10 +50,9 @@
   float:left;
   font-size: 1.7em;
 }
-/* END OF HEADER STYLES */
 
 
-/* STYLES FOR RIGHT COL */
+/* styles for right col */
 #right-col {
   background-color: #fafafa;
   padding-left: 2em;
@@ -84,6 +91,7 @@
 #category-cloud {
   margin-bottom: 2em;
 }
+
 .category-link a {
   border: 1px solid gray;
   background-color: #FFF;
@@ -97,7 +105,6 @@
   border-radius:0.5em;
 }
 
-
 .category-link a:hover {
   border: 1px solid green;
   color: green;
@@ -110,6 +117,7 @@
   padding-bottom: 1em;
   padding-top: 1em;
 }
+
 .sidebar-post-date {
   color: gray;
   font-size:0.8em;
@@ -141,10 +149,7 @@
 }
 
 
-
-
-/* POST STYLES */
-
+/* post styles in right sidebar */
 .post {
   padding-bottom:2em;
   border-bottom: 1px solid gray;
@@ -200,11 +205,9 @@
 .post-footer span{
   cursor: pointer;
 }
-/* End of Post Styles */
 
 
-/* Start of Full Post Styles*/
-
+/* full post styles for main col */
 #full-post-image {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -219,8 +222,7 @@
 }
 
 
-/*Footer Styles*/
-
+/* footer styles */
 #footer {
   background-color: #fafafa;
   padding:30px;
@@ -250,15 +252,15 @@
 }
 
 
-/* implement ClearFix for floating divs */
+/* clearFix for floating divs */
 .clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
