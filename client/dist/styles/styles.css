@@ -1,23 +1,24 @@
-/* organization of this file: 
+/* 
+  Organization of this css file: 
   each major section of the blog is given its own css section.
   each section is headed by a comment. A new section begins with a new comment.
   each section has two lines proceeding the section comment.
-  the order of the css within each section is based on the order in which the css appears in the section
+  the order of the css within each section is based on the order in which the css appears on the html page
 */
 
 
 /* header and navigation styles */
  #header {
   font-family: Geneva,Verdana,sans-serif;
-  margin:auto;
+  margin: auto;
   height: 4em;
-  padding-top:1em;
-  padding-left:2em;
+  padding-top: 1em;
+  padding-left: 2em;
   border-bottom: 1px solid gray;
 }
 
 #header a {
-  color:#333;
+  color: #333;
 }
 
 #header a:hover {
@@ -28,7 +29,7 @@
   float: left;
   margin-left: 2em;
   font-size: 14px;
-  margin-top:0.78em;
+  margin-top: 0.78em;
 }
 
 #navigation div {
@@ -37,8 +38,8 @@
   font-size: 1.0em;
   padding-left: 2em;
   padding-right:2em;
-  padding-bottom:0.55em;
-  text-align:center;
+  padding-bottom: 0.55em;
+  text-align: center;
 }
 
 #navigation div:hover {
@@ -47,163 +48,18 @@
 }
 
 #logo {
-  float:left;
+  float: left;
   font-size: 1.7em;
 }
 
 
-/* styles for right col */
-#right-col {
-  background-color: #fafafa;
-  padding-left: 2em;
-  padding-right:2em;
-  padding-top:2em;
-}
-
-#right-col a {
-  color: #333;
-  text-decoration: none;
-}
-
-#right-col a:hover {
-  color:green;
-}
-
-#bio {
-  padding-top:1em;
-  padding-left:6em;
-  padding-right:6em;
-  margin-bottom:3em;
-}
-
-#headshot {
-}
-
-#headshot img {
-  max-width:100%;
-}
-
-.sidebar-title {
-  font-size: 1em;
-  font-weight: 700;
-}
-
-#category-cloud {
-  margin-bottom: 2em;
-}
-
-.category-link a {
-  border: 1px solid gray;
-  background-color: #FFF;
-  float:left;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin-left: 0.5em;
-  margin-top: 0.5em;
-  border-radius:0.5em;
-}
-
-.category-link a:hover {
-  border: 1px solid green;
-  color: green;
-  cursor: pointer;
-}
-
-.sidebar-post {
-  font-size: 1em;
-  border-bottom: 1px solid gray;
-  padding-bottom: 1em;
-  padding-top: 1em;
-}
-
-.sidebar-post-date {
-  color: gray;
-  font-size:0.8em;
-}
-
-#sidebar-posts {
-  margin-left:0.5em;
-  margin-bottom:2em;
-}
-
-#sidebar-projects {
-  margin-left:0.5em;
-  margin-bottom:2em;
-}
-
-.sidebar-project {
-  font-size: 1em;
-  border-bottom: 1px solid gray;
-  padding-bottom: 1em;
-  padding-top: 1em;
-}
-
+/* overall main col style */
 #main-col {
-  margin:auto;
-  padding-left:10em;
-  padding-right:10em;
-  padding-top:2em;
-  margin-bottom:2em;
-}
-
-
-/* post styles in right sidebar */
-.post {
-  padding-bottom:2em;
-  border-bottom: 1px solid gray;
-}
-
-.post a {
-  color:black;
-}
-
-.post a:hover {
-  color:black;
-  text-decoration: none;
-}
-
-.post-header {
-  font-size:1em;
-}
-
-.author-name: {
-}
-
-.time-ago {
-}
-
-.post-header {
-  margin-bottom:0.5em;
-}
-
-.post-image img{
-  width:100%;
-}
-
-.post h3 {
-  font-weight: normal;
-  cursor: pointer;
-}
-
-.continue-reading {
-  color:green;
-}
-
-.continue-reading:hover {
-  text-decoration: underline;
-}
-
-.post-summary {
-  margin-top: 0.7em;
-  margin-bottom: 0.7em;
-  font-size: 1.3em;
-  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-}
-
-.post-footer span{
-  cursor: pointer;
+  margin: auto;
+  padding-left: 10em;
+  padding-right: 10em;
+  padding-top: 2em;
+  margin-bottom: 2em;
 }
 
 
@@ -222,24 +78,181 @@
 }
 
 
+/* styles for right col */
+#right-col {
+  background-color: #fafafa;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+}
+
+#right-col a {
+  color: #333;
+  text-decoration: none;
+}
+
+#right-col a:hover {
+  color: green;
+}
+
+.sidebar-title {  /* the title for all sidebar categories */
+  font-size: 1em;
+  font-weight: 700;
+}
+
+
+/* styles for bio area in right col */
+#bio {
+  padding-top: 1em;
+  padding-left: 6em;
+  padding-right: 6em;
+  margin-bottom: 3em;
+}
+
+#headshot {
+}
+
+#headshot img {
+  max-width: 100%;
+}
+
+
+/* category tags in right col */
+#category-cloud {
+  margin-bottom: 2em;
+}
+
+.category-link a {
+  border: 1px solid gray;
+  background-color: #FFF;
+  float: left;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 0.5em;
+}
+
+.category-link a:hover {
+  border: 1px solid green;
+  color: green;
+  cursor: pointer;
+}
+
+
+/* post titles in the right col */
+#sidebar-posts {
+  margin-left: 0.5em;
+  margin-bottom: 2em;
+}
+
+.sidebar-post {
+  font-size: 1em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.sidebar-post-date {
+  color: gray;
+  font-size: 0.8em;
+}
+
+
+
+/* project titles in the right col */
+#sidebar-projects {
+  margin-left: 0.5em;
+  margin-bottom: 2em;
+}
+
+.sidebar-project {
+  font-size: 1em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+
+
+/* post styles in right col */
+.post {
+  padding-bottom: 2em;
+  border-bottom: 1px solid gray;
+}
+
+.post a {
+  color: black;
+}
+
+.post a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.post-header {
+  font-size: 1em;
+}
+
+.author-name: {
+}
+
+.time-ago {
+}
+
+.post-header {
+  margin-bottom: 0.5em;
+}
+
+.post-image img{
+  width: 100%;
+}
+
+.post h3 {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.continue-reading {
+  color: green;
+}
+
+.continue-reading:hover {
+  text-decoration: underline;
+}
+
+.post-summary {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  font-size: 1.3em;
+  font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+}
+
+.post-footer span{
+  cursor: pointer;
+}
+
+
 /* footer styles */
 #footer {
   background-color: #fafafa;
-  padding:30px;
+  padding: 30px;
   color: gray;
-  margin:auto;
+  margin: auto;
   display: block;
 }
 
 #footer a {
-  color:gray;
-  text-decoration:underline;
+  color: gray;
+  text-decoration: underline;
 
 }
 
 #social-links div {
-  float:left;
-  margin-left:15px;
+  float: left;
+  margin-left: 15px;
 }
 
 #copyright {
