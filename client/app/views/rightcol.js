@@ -93,12 +93,11 @@ App.sidebarProjectsView = Backbone.View.extend({
 App.sidebarProjectTitle = Backbone.View.extend({
   className: "sidebar-project",
   render: function() {
-    var template = _.template($("script#sidebar-project-title").html());
+    var template = _.template($("script#sidebar-project").html());
     this.$el.html(template(this.model.attributes));
     return this;
   }
 });
-
 
 App.rightColView = Backbone.View.extend({
   initialize: function(postModels, projectModels){
