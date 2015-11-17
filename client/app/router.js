@@ -17,18 +17,25 @@ App.Router = Backbone.Router.extend({
 
     var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
     postCollection.fetch({
-      success: function(results) {
-        console.log("category results", results);
+      success: function(postResults) {
+        console.log("category results", postResults);
 
         //append the right column second. Right column has to be appended here to fetch the categories from the json file.
-        var rightCol = new App.rightColView(results);
-        var rightColEl = rightCol.render().$el;
-        this.$el.append(rightColEl);
+        var projectCollection = new App.projectCollection();
+        projectCollection.fetch({
+          success: function(projectResults){
+            console.log("projectResults", projectResults);
+            //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+            var rightCol = new App.rightColView(postResults, projectResults);
+            var rightColEl = rightCol.render().$el;
+            this.$el.append(rightColEl);
+          }.bind(this)
+        });
 
-        for (var k=0; k<results.length; k++){
-          if (results.models[k].attributes.categories.indexOf(category) !== -1) {
+        for (var k=0; k<postResults.length; k++){
+          if (postResults.models[k].attributes.categories.indexOf(category) !== -1) {
             //append each post summary to the main view.
-            var postView = new App.postView({model: results.models[k]});
+            var postView = new App.postView({model: postResults.models[k]});
             mainColEl.append(postView.render().$el);
           }
         }
@@ -43,26 +50,29 @@ App.Router = Backbone.Router.extend({
     var mainColEl = mainCol.render().$el;
     this.$el.append(mainColEl);
 
-    
-
     var fullPostModel = new App.fullPostModel({postId:postId});
-
     fullPostModel.fetch({ //fetch the full JSON file of post data from the model.
       success: function(results) {
         //for now, fetch the post collection with every page load.
         var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
         postCollection.fetch({
-          success: function(results) {
+          success: function(postResults) {
 
-            //append the right column second. Right column has to be appended here to fetch the categories from the json file.
-            var rightCol = new App.rightColView(results);
-            var rightColEl = rightCol.render().$el;
-            this.$el.append(rightColEl);
+            var projectCollection = new App.projectCollection();
+            projectCollection.fetch({
+              success: function(projectResults){
+                console.log("projectResults", projectResults);
+                //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+                var rightCol = new App.rightColView(postResults, projectResults);
+                var rightColEl = rightCol.render().$el;
+                this.$el.append(rightColEl);
+              }.bind(this)
+            });
 
             //now append the main col.
-            for (var k=0; k<results.length; k++){
-              if (results.models[k].id === postId) {
-                var postAttributes = results.models[k].attributes;
+            for (var k=0; k<postResults.length; k++){
+              if (postResults.models[k].id === postId) {
+                var postAttributes = postResults.models[k].attributes;
                 fullPostModel.set({
                   date: postAttributes.date,
                   title: postAttributes.title,
@@ -79,7 +89,6 @@ App.Router = Backbone.Router.extend({
         });
       }.bind(this)
     });
-
   },
 
   index: function(){
@@ -109,5 +118,5 @@ App.Router = Backbone.Router.extend({
         }
       }.bind(this)
     });
-  },
+  }
 });

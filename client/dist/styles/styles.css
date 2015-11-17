@@ -63,7 +63,7 @@
 }
 
 
-/* full post styles for main col */
+/* post styles for main col homepage & category pages*/
 .post {
   padding-bottom: 2em;
   border-bottom: 1px solid gray;
@@ -115,6 +115,11 @@
 
 .continue-reading:hover {
   text-decoration: underline;
+}
+
+/* full post styles for the post pages */
+#full-post img {
+  max-width: 100%;
 }
 
 

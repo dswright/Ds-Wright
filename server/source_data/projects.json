@@ -3,18 +3,18 @@
     "id": "1",
     "title": "ProductSquare",
     "date": "10/2/2015",
-    "image": "someImgURL"
+    "image": "/images/projects/product-square.png"
   },
   {
     "id": "2",
     "title": "JSVS",
     "date": "10/2/2015",
-    "image": "http://someotherimage.com/"
+    "image": "/images/projects/product-square.png"
   },
   {
     "id": "3",
     "title": "DS-Wright",
     "date": "10/2/2015",
-    "image": "http://gggg.com/"
+    "image": "/images/projects/ds-wright.png"
   }
 ]

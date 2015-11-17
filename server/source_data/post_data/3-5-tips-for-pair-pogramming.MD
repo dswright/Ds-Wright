@@ -1,7 +1,7 @@
 Pair programming can be an difficult experience for new programmers. Sometimes new engineers expect coding to be a solitary experience where they will get to work in relative isolation from other engineers, and they are surprised to discover this is not the case. See the tips below for how to navigate the early pitfalls of pair programming.
 
 ### 1. Pair Management
-When pairing with someone that I have never paired with before, I expect to put between 20-40% of my energy towards the management of my pair. This is for a whole host of reasons. 
+When pairing with someone that I have never paired with before, I expect to put between 20-40% of my energy towards the management of my pair.
 
 * My pair may be a better coder than me, which means I need to put some effort into making sure they're going slow enough for me to understand what is going on. 
 

@@ -1,12 +1,6 @@
 
 App.postView = Backbone.View.extend({
 
-  events: { 'click .continue-reading': 'postClick' },
-  postClick: function() {
-    console.log('postClicked!');
-    app.router.navigate('post/13/123', {trigger: true});
-    //run a route redirect to the new route which will reload the main col with the blog post.
-  },
   render: function(){
     var template = _.template($("script#post").html());
     this.$el.html(template(this.model.attributes));

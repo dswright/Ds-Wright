@@ -1,29 +1,29 @@
-  [
-    {
-      "id": "1",
-      "title": "Direct a Custom Domain Name to a Heroku App in 5 Easy Steps",
-      "date": "September 16th, 2015",
-      "img": "http://blog.webs.com/wp-content/uploads/2012/01/IMAGE_JPEG.jpg",
-      "lead": "See a how to point your custom domain to a Heroku app with any hosting provider.",
-      "url": "custom-domain-on-Heroku",
-      "categories": ["Heroku", "Hosting"]
-    },
-    {
-      "id":"4",
-      "title": "Git Workflow for Small Teams",
-      "date": "August 22nd, 2014",
-      "img": "http://ds-wright.com/images/posts/code-sn.png",
-      "lead": "Git workflow can be tricky. Learn a good baseline workflow for working with your team.",
-      "url": "small-team-git-workflow",
-      "categories": ["Github", "Teamwork"]
-    },
-    {
-      "id":"3",
-      "title": "5 Tips For Productive Pair Programming",
-      "date": "September 29th, 2015",
-      "img": "http://cdn.meme.am/instances/500x/58269642.jpg",
-      "lead": "Get 5 ways to make your pair programming more productive and effective",
-      "url": "5-tips-pair-programming",
-      "categories": ["Teamwork"]
-    }
-  ]
+[
+  {
+    "id": "1",
+    "title": "Direct a Custom Domain to a Heroku App in 5 Easy Steps",
+    "date": "September 16th, 2015",
+    "img": "/images/posts/choosing-a-domain.png",
+    "lead": "See a how to point your custom domain to a Heroku app with any hosting provider.",
+    "url": "custom-domain-on-Heroku",
+    "categories": ["Heroku", "Hosting"]
+  },
+  {
+    "id":"2",
+    "title": "Git Workflow for Small Teams",
+    "date": "August 22nd, 2014",
+    "img": "/images/posts/git-workflow.png",
+    "lead": "Git workflow can be tricky. Learn a good baseline workflow for working with your team.",
+    "url": "small-team-git-workflow",
+    "categories": ["Github", "Teamwork"]
+  },
+  {
+    "id":"3",
+    "title": "5 Tips For Productive Pair Programming",
+    "date": "September 29th, 2015",
+    "img": "/images/posts/pair-programming-chuck-norris.png",
+    "lead": "Get 5 ways to make your pair programming more productive and effective",
+    "url": "5-tips-pair-programming",
+    "categories": ["Teamwork"]
+  }
+]
