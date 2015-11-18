@@ -5,6 +5,7 @@ App.Router = Backbone.Router.extend({
 
   routes: {
     'post/:id/*filename': 'post',
+    'project/:project/': 'project',
     'category/:category/': 'category',
     '': 'index'
   },
@@ -42,6 +43,10 @@ App.Router = Backbone.Router.extend({
       }.bind(this)
     })
 
+  },
+
+  project: function(project){
+    console.log("project is" + project);
   },
 
   post: function(postId){ //

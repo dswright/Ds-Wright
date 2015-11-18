@@ -1,18 +1,21 @@
 [
   {
     "id": "1",
+    "url": "product-square",
     "title": "ProductSquare",
     "date": "10/2/2015",
     "image": "/images/projects/product-square.png"
   },
   {
     "id": "2",
+    "url": "jsvs",
     "title": "JSVS",
     "date": "10/2/2015",
     "image": "/images/projects/jsvs.png"
   },
   {
     "id": "3",
+    "url": "ds-wright",
     "title": "DS-Wright",
     "date": "10/2/2015",
     "image": "/images/projects/ds-wright.png"

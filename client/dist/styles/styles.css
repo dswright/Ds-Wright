@@ -242,6 +242,15 @@
   opacity: 0.8;
 }
 
+.sidebar-project-caption-content a {
+  color: white !important;
+}
+
+.sidebar-project-caption-content a:hover {
+  color: white !important;
+  text-decoration: underline !important;
+}
+
 .sidebar-project-caption-content {
   position: absolute;
   width: 90%;
