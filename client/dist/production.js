@@ -16797,9 +16797,15 @@ App.projectModel = Backbone.Model.extend({
 App.fullPostModel = Backbone.Model.extend({
   initialize: function(options){
     this.postId = options.postId;
-    this.urlRoot = '/post_source/'+this.postId;
+    this.urlRoot = '/post_source/'+this.postId+"/";
   },
-  
+});
+
+App.fullProjectModel = Backbone.Model.extend({
+  initialize: function(options){
+    this.projectUrl = options.projectUrl;
+    this.urlRoot = '/project_source/'+this.projectUrl+"/";
+  }
 });
 App.Router = Backbone.Router.extend({
   initialize: function(options){ //options
@@ -16848,8 +16854,53 @@ App.Router = Backbone.Router.extend({
 
   },
 
-  project: function(project){
-    console.log("project is" + project);
+  project: function(projectUrl){
+    console.log("project is" + projectUrl);
+    var mainCol = new App.mainColView() //Renders an empty shell to be filled in.
+    var mainColEl = mainCol.render().$el;
+    this.$el.append(mainColEl);
+
+    var fullProjectModel = new App.fullProjectModel({projectUrl:projectUrl});
+    fullProjectModel.fetch({ //fetch the full JSON file of post data from the model.
+      success: function(results) {
+        //for now, fetch the post collection with every page load.
+        var postCollection = new App.postCollection(); //load the collection of posts from the posts.json file.
+        postCollection.fetch({
+          success: function(postResults) {
+
+            var projectCollection = new App.projectCollection();
+            projectCollection.fetch({
+              success: function(projectResults){
+                console.log("projectResults", projectResults);
+
+                //now append the main col.
+                for (var k=0; k<projectResults.length; k++){
+                  console.log("projects:", projectResults.models[k].attributes.url);
+                  if (projectResults.models[k].attributes.url === projectUrl) {
+                    var projectAttributes = projectResults.models[k].attributes;
+                    fullProjectModel.set({
+                      date: projectAttributes.date,
+                      title: projectAttributes.title,
+                      img: projectAttributes.image
+                    });
+                    console.log("full post model", fullProjectModel.attributes);
+                    var fullProjectView = new App.fullProjectView({model: fullProjectModel});
+                    var $projectViewEl = fullProjectView.render().$el;
+                    $projectViewEl.find("#full-project-content").append(fullProjectModel.get('markdown'));
+                    mainColEl.append($projectViewEl);
+                  }
+                }
+
+                //append the right column second. Right column has to be appended here to fetch the categories from the json file.
+                var rightCol = new App.rightColView(postResults, projectResults);
+                var rightColEl = rightCol.render().$el;
+                this.$el.append(rightColEl);
+              }.bind(this)
+            });            
+          }.bind(this)
+        });
+      }.bind(this)
+    });
   },
 
   post: function(postId){ //
@@ -16948,6 +16999,16 @@ App.fullPostView = Backbone.View.extend({
     return this;
   }
 });
+
+//view for the individual project page.
+App.fullProjectView = Backbone.View.extend({
+  id: "full-project",
+  render: function() {
+    var template = _.template($("script#full-project").html());
+    this.$el.html(template(this.model.attributes));
+    return this;
+  }
+})
 
 App.mainColView = Backbone.View.extend({
   className: "col-md-8",

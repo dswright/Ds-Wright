@@ -18,6 +18,16 @@ App.fullPostView = Backbone.View.extend({
   }
 });
 
+//view for the individual project page.
+App.fullProjectView = Backbone.View.extend({
+  id: "full-project",
+  render: function() {
+    var template = _.template($("script#full-project").html());
+    this.$el.html(template(this.model.attributes));
+    return this;
+  }
+})
+
 App.mainColView = Backbone.View.extend({
   className: "col-md-8",
   id: "main-col",
