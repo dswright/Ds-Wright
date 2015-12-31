@@ -1,64 +1,13 @@
-# Ds-wright Blog
+# Ds-Wright.com Blog
 
-##Page Types
+Ds-Wright.com is a personal blog project that is built from scratch using Node & Express, Backbone and Grunt. It is not currently built for public use.
 
-* Home
-* Category 
-* Post
-* Page
-* Projects
-* Project
+# Common Actions
 
-###Home  
-Utilizes category file to show recent posts & projects.
+Run the server - run 'grunt'
 
-###Category  
-Utilizes the category file to show recent blog posts.
+Add a post - Add a new Markdown file to server/source_data/post_data/ and add a new post to posts.json
 
-### Post
-Uses markdown to display a blogpost.
+Add a project - Add a new Markdown file to server/source_data/project_data/ and add a new project to projects.json
 
-### Page
-Uses markdown to display a page.  
-Pages are not shown through the category file. They are hardcoded into the header & sidebar.
-
-###Projects  
-Utilize the category file to show projects.
-
-###Project
-Utilize markdown to display a project page.
-
-
-##Routes
-
-* /
-* /Page
-* /Post
-* /Project
-* /Category
-* /Projects
-
-need a route for loading general pages.
-about, contact, 
-
-some routes will load html.
-there will be three page types - page, post, project.
-these will each be designated by /page, /post, /project.
-so each of those routes will return some basic html template page.
-
-these templates will have to ping different JSON data from the server.
-this data needs to be easily retrievable from the server.
-each page type can ping for its corresponding HTML contents.
-a category page? This seems like a db.
-a file would be a pain.
-Shit. I need to store amount of data stored in the db...
-Several things need to be saved in the database.
-Post/Page/Projects
-Name, publish date, last updated, author, lead.
-lead should be set.. everything should be set... how???
-I need to have a database on heroku.
-Shouldn't be too hard. BLAH.
-Check for new posts every 10 minutes. Process their data.
-
-allow cookies. Store stories/objects/whatever into the localStorage.
-
+Read more about this project on DS-Wright.com/project/ds-wright/
