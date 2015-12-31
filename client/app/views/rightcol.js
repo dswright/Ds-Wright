@@ -100,25 +100,32 @@ App.sidebarProjectTitle = Backbone.View.extend({
 });
 
 App.rightColView = Backbone.View.extend({
-  initialize: function(postModels, projectModels){
-    this.postModels = postModels;
-    this.projectModels = projectModels;
-  },
   className: "col-md-4",
   id: "right-col",
   render: function(){
-    var sidebarBioView = new App.sidebarBioView();
-    this.$el.append(sidebarBioView.render().$el);
+    var postCollection = new App.postCollection();
+    postCollection.fetch({
+      success: function(posts) {
+        this.postModels = posts;
+        var projectCollection = new App.projectCollection();
+        projectCollection.fetch({
+          success: function(projects) {
+            this.projectModels = projects;
+            var sidebarBioView = new App.sidebarBioView();
+            this.$el.append(sidebarBioView.render().$el);
 
-    var sidebarCategoriesView = new App.sidebarCategoriesView(this.postModels);
-    this.$el.append(sidebarCategoriesView.render().$el);
+            var sidebarCategoriesView = new App.sidebarCategoriesView(this.postModels);
+            this.$el.append(sidebarCategoriesView.render().$el);
 
-    var sidebarPostsView = new App.sidebarPostsView(this.postModels);
-    this.$el.append(sidebarPostsView.render().$el);
+            var sidebarPostsView = new App.sidebarPostsView(this.postModels);
+            this.$el.append(sidebarPostsView.render().$el);
 
-    var sidebarProjectsView = new App.sidebarProjectsView(this.projectModels);
-    this.$el.append(sidebarProjectsView.render().$el);
-
+            var sidebarProjectsView = new App.sidebarProjectsView(this.projectModels);
+            this.$el.append(sidebarProjectsView.render().$el);
+          }.bind(this)
+        });
+      }.bind(this)
+    });
     return this;
   }
 });

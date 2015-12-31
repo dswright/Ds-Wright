@@ -1,3 +1,4 @@
+
 var express = require('express');
 var path = require('path');
 var expressHbs = require('express-handlebars');
@@ -27,7 +28,7 @@ app.use(parser.json()); //makes it so that the req.body is available as JSON aut
 // Serve static img, css, and js files from the client/dist directory..
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.get('/post_source/:id/', function(req, res) {
+app.get('/post-source/:id/', function(req, res) {
   res.writeHead(200, {"Content-Type":"application/json"});
   glob("server/source_data/post_data/"+req.params.id+"-*.MD", 'utf-8', function(err, files){ //the wildcard file name matching requires a module called 'glob'
     console.log(files);
@@ -41,7 +42,7 @@ app.get('/post_source/:id/', function(req, res) {
   });
 });
 
-app.get('/project_source/:project_url/', function(req, res) {
+app.get('/project-source/:project_url/', function(req, res) {
   console.log("attempting proj fetch");
   res.writeHead(200, {"Content-Type":"application/json"});
   fs.readFile("server/source_data/project_data/"+req.params.project_url+".MD", 'utf-8', function(err, data){ //the wildcard file name matching requires a module called 'glob'

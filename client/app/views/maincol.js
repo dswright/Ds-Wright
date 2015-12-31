@@ -1,6 +1,5 @@
 
 App.postView = Backbone.View.extend({
-
   render: function(){
     var template = _.template($("script#post").html());
     this.$el.html(template(this.model.attributes));
