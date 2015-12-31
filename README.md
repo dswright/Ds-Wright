@@ -4,6 +4,8 @@ Ds-Wright.com is a personal blog project that is built from scratch using Node &
 
 # Common Actions
 
+To install all dependencies - run 'npm install'
+
 Run the server - run 'grunt'
 
 Add a post - Add a new Markdown file to server/source_data/post_data/ and add a new post to posts.json
