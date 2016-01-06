@@ -7,6 +7,7 @@ App.postCollection = Backbone.Collection.extend({
 
 App.projectCollection = Backbone.Collection.extend({
   initialize: function(){
+    console.log("initialize project colelction");
     this.model = App.projectModel;
     this.url = "/json/projects/";
   }

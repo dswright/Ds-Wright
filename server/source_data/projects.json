@@ -3,7 +3,7 @@
     "id": "1",
     "url": "product-square",
     "title": "ProductSquare",
-    "headline": "ProductSquare - Student Portfolio Project"
+    "headline": "ProductSquare - Student Portfolio Project",
     "date": "10/2/2015",
     "image": "/images/projects/product-square.png"
   },
@@ -11,7 +11,7 @@
     "id": "2",
     "url": "jsvs",
     "title": "JSVS",
-    "headline": ""
+    "headline": "",
     "date": "10/2/2015",
     "image": "/images/projects/jsvs.png"
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "url": "ds-wright",
     "title": "DS-Wright",
-    "headline": "DS-Wright - Personal Blog Project"
+    "headline": "DS-Wright - Personal Blog Project",
     "date": "10/2/2015",
     "image": "/images/projects/ds-wright.png"
   }

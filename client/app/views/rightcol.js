@@ -106,6 +106,7 @@ App.rightColView = Backbone.View.extend({
     var postCollection = new App.postCollection();
     postCollection.fetch({
       success: function(posts) {
+        console.log("post collection fetched")
         this.postModels = posts;
         var projectCollection = new App.projectCollection();
         projectCollection.fetch({

@@ -122,6 +122,10 @@
   max-width: 100%;
 }
 
+/* full project styles for the project pages */
+#full-project img {
+  max-width: 100%;
+}
 
 /* styles for right col */
 #right-col {
