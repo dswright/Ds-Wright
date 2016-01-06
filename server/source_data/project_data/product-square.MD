@@ -1,10 +1,16 @@
 ###The Idea
 
-ProductSquare is a platform for students to showcase the projects they have completed while learning to code in a bootcamp. Additionally, ProductSquare is a platform for non-profit companies to come and make proposals for student projects. The main purpose of ProductSquare was to create a showcase of student work, where it would be easy for prospective students and future employers to look over the projects that had been done completed by bootcamp students.
+ProductSquare is a platform for students to showcase the projects they have completed while learning to code in a bootcamp. Additionally, ProductSquare is a platform for non-profit companies to come and make proposals for student projects.
 
 ### ProductSquare Team
 
-ProductSquare was worked on by 5 students at MakerSquare (including myself). They are: Christopher Kim, Alex Navaratte, Ting Deng, and Sin Wai Lam.
+ProductSquare was worked on by 5 students at MakerSquare (including myself):
+
+* [codeNameAtlas](https://github.com/codeNameAtlas "See the github profile for CodeNameAtlas")
+* [viinasu](https://github.com/viinasu "See the github profile for viinasu")
+* [jkf91](https://github.com/jkf91 "See the github profile for jkf91")
+* [sinwailam193](https://github.com/sinwailam193 "see the github profile for sinwailam193")
+* [dswright](https://github.com/dswright "see the github profile for dswright")
 
 ### Technology Stack for ProductSquare
 
@@ -16,7 +22,8 @@ ProductSquare was worked on by 5 students at MakerSquare (including myself). The
 
 ### ProductSquare Video Demo
 
-Learn more about both our product and our technical architecture in the promo video that we made at MakerSquare!
+Learn more about ProductSquare and its technical architecture in our demo video:
+
 [![](/images/projects/product-square-video.png)](https://vimeo.com/142969652)
 
 
@@ -26,19 +33,19 @@ I really wanted ProductSquare to become a product that would actually be used by
 
 #### 4 Biggest Takeaways from ProductSquare
 
-* I do not like Angular.js very much. It is too easy to write spaghetti code that lacks modularity and it lead to significant scope and state issues in site that created odd bugs.
+* I do not like Angular.js very much. It is too easy to write spaghetti code that lacks modularity and it lead to significant scope and state issues on ProductSquare.
 
-* Do not use templates that are sold online as the basis of your design. It is more efficient and leads to less code bloat to only use small elements of websites that you see in other places and incorporate those elements into your site in a minimalist way.
+* We should not have used a commercial template as the basis for our design. It is more efficient and leads to less code bloat to only use small elements of websites that you see in other places and incorporate those elements into your site in a minimalist way.
 
 * We should have cut the scope of the project in half and only focused on building the showcase for student projects. Instead we added a whole section for employers to add project proposals, which added a lot of additional functionality, and somewhat clouded the main intent of our site.
 
-* Data input forms are very difficult to do well. Forms that take in complex data must often times be very dynamic and respond to what data the user wants to input. While they are very difficult, they are also very un-sexy, and boring to demo, so choosing a project that was form and data-input heavy was probably not the best idea for a student project. 
+* Data input forms are very difficult to do well. Forms that take in complex data must often times be very dynamic and respond to what data the user wants to input. While they are very difficult, they are also boring, and boring to demo, so choosing a project that was form and data-input heavy was probably not the best idea for a student project. 
 
 Overall, I really enjoyed working on the project, had a lot of fun with my team, and we learned a ton of JavaScript in the development process!
 
 See [our live demo on productsquare.herokuapp.com](http://productsquare.herokuapp.com/)!
 
-See [the code for ProductSquare code](https://github.com/dswright/ProductSquare) on github here
+See [the code for ProductSquare](https://github.com/dswright/ProductSquare) on github.
 
 
 
