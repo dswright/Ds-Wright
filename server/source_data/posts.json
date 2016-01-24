@@ -9,7 +9,7 @@
     "categories": ["Heroku", "Hosting"]
   },
   {
-    "id":"2",
+    "id": "2",
     "title": "Git Workflow for Small Teams",
     "date": "August 22nd, 2014",
     "img": "/images/posts/git-workflow.png",
@@ -18,12 +18,21 @@
     "categories": ["Github", "Teamwork"]
   },
   {
-    "id":"3",
+    "id": "3",
     "title": "5 Tips For Productive Pair Programming",
     "date": "September 29th, 2015",
     "img": "/images/posts/pair-programming-chuck-norris.png",
     "lead": "Get 5 ways to make your pair programming more productive and effective",
     "url": "5-tips-pair-programming",
     "categories": ["Teamwork"]
+  },
+  {
+    "id":"4",
+    "title": "3 Surprises From Working in Software Development",
+    "date": "January 23rd, 2016",
+    "img": "/images/posts/working-in-software-development",
+    "lead": "5 surprising observations about working in software development",
+    "url": "5-observations-working-in-software-development",
+    "categories": ["Teamwork", "Development"]
   }
 ]
