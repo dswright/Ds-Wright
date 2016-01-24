@@ -29,17 +29,23 @@ Learn more about ProductSquare and its technical architecture in our demo video:
 
 ### ProductSquare Postmortem 
 
-I really wanted ProductSquare to become a product that would actually be used by bootcamp students to showcase their work. Unfortunately, we bit off more than we could chew, and we were not able to build a bug-free platform with seamless user experience that was enticing for students to use to showcase their work.
+I really wanted ProductSquare to become a product that would actually be used by bootcamp students to showcase their work. Unfortunately, we bit off more than we could chew, and we were not able to build a complete platform in 3 weeks.
 
-#### 4 Biggest Takeaways from ProductSquare
+#### 3 Things I learned
 
-* I do not like Angular.js very much. It is too easy to write spaghetti code that lacks modularity and it lead to significant scope and state issues on ProductSquare.
+* How to do colored overlays with css to create a very nice hover effect.
 
-* We should not have used a commercial template as the basis for our design. It is more efficient and leads to less code bloat to only use small elements of websites that you see in other places and incorporate those elements into your site in a minimalist way.
+* How to setup gulp as an automated deployment handler.
 
-* We should have cut the scope of the project in half and only focused on building the showcase for student projects. Instead we added a whole section for employers to add project proposals, which added a lot of additional functionality, and somewhat clouded the main intent of our site.
+* How to structure an Angular.js app.
 
-* Data input forms are very difficult to do well. Forms that take in complex data must often times be very dynamic and respond to what data the user wants to input. While they are very difficult, they are also boring, and boring to demo, so choosing a project that was form and data-input heavy was probably not the best idea for a student project. 
+#### 3 Things I would Do Differently
+
+* I would have used React instead of Angular. I have found since doing this project that I like React much more than Angular.
+
+* I would not have used a commercial design template as the basis for our design. Taking small bits of a design instead of an entire template leads to much better control of code.
+
+* I would have reduced the scope of our project to only focus on the showcasing of projects so that we could create a very polished product.
 
 Overall, I really enjoyed working on the project, had a lot of fun with my team, and we learned a ton of JavaScript in the development process!
 
