@@ -7,16 +7,11 @@ Compared to my previous jobs the hours and flexibility that developers get are o
 
 ### Every Line of Code is Scrutinized
 
-I have never paid more attention to every line of code before. I work on a team of about five engineers, and there is a peer review system in place for any new code that is contributed. Every single line of code is up for scrutiny during the code review, and my team does not hesitate to point out poorly named variables, small opportunities to reduce repetitive code, or a missing semicolon or extra line break. So far, this level of detail has been difficult to accomodate at times, but I am producing much higher quality code.
+I have never paid more attention to every line of code before. I work on a team of about five engineers, and there is a peer review system in place for any new code that is contributed. Every single line of code is up for scrutiny during the code review, and my team does not hesitate to point out poorly named variables, small opportunities to reduce repetitive code, or a missing semicolon or extra line break. So far, this level of detail has been difficult to accomodate at times, but I am producing much higher quality code than I ever have before.
 
-### The Developer
+### Releasing is Stressful
 
-Developers create a very unique culture in the office. They are typically very smart, introverted, and quirky in their own way. Soylent is a popular topic of conversation, complicated jokes that no one understands are 100% the norm, and we play video games everyday after work. I love getting to work with people that push my intelligence, and have similar interests as me, but it can be waring at times as well. Developers tend to be a bit stubborn in their approach, so giving feedback can be tricky. And I have only seen a few natural leaders that were also developers. Because of the peronsality type attracted to this work, people who are good at managing people, and being extroverted and communicative are very rare. So far, I feel happy and at home on the development team, but I am also happy that I have had the previous experience in a different industry so that I can see the contrasts.
+Crunch time in software development is the release of new code. When I first started my job at CoverHound, I started to wonder where the intensity in the job would come from. My first few weeks were very relaxed and low pressure, but gradually increased up until we released the feature we had all been working on for months. I thought that releases would be a bit more organized than what I have experienced so far. It seems like the pressure to ship code and new features, combined with the complexity of bug fixing, testing, and feature development, leads to a final flurry of last-minute finalizations that have the potential to lead to disaster. It feels like a lot of pressure to get everything working perfectly before the code is shipped, and nobody wants to be the one holding up the boat with buggy code. The light at the end of the tunnel is that the code does finally get released and every does get to take a bit of a breather and celebrate the big release.
 
-Development attracts a very unique type of person, and compared to my previous job in marketing, they create a very different type of work culture.
-
-
-### Engineers Are So Smart
-
-One of the reasons that I left my last job in marketing was because I felt that I related to the quote "If you are the smartest person in the room, you are in the wrong room".
+So far, I am finding being a software developer a more challenging job than any other I have tried so far. I am enjoying it, as it is forcing me to be diligent and detail-focused person than ever before. And I am also really enjoying learning the process of software development. I am looking forward to applying my new understanding of the process of software development.
 
