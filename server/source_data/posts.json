@@ -10,12 +10,12 @@
   },
   {
     "id": "2",
-    "title": "Git Workflow for Small Teams",
+    "title": "Kyle Simpson on Learning How To Learn",
     "date": "August 22nd, 2014",
-    "img": "/images/posts/git-workflow.png",
-    "lead": "Git workflow can be tricky. Learn a good baseline workflow for working with your team.",
-    "url": "small-team-git-workflow",
-    "categories": ["Github", "Teamwork"]
+    "img": "/images/posts/kyle-simpson-speaks-at-makersquare.jpg",
+    "lead": "Kyle Simpson Speaks At MakerSquare",
+    "url": "kyle-simpson-learning-how-to-learn",
+    "categories": ["MakerSquare", "Development"]
   },
   {
     "id": "3",
@@ -34,5 +34,14 @@
     "lead": "3 surprising observations about working in software development",
     "url": "3-surprising-observations-working-in-software-development",
     "categories": ["Teamwork", "Development"]
+  },
+  {
+    "id": "5",
+    "title": "Git Workflow for Small Teams",
+    "date": "August 22nd, 2014",
+    "img": "/images/posts/git-workflow.png",
+    "lead": "Git workflow can be tricky. Learn a good baseline workflow for working with your team.",
+    "url": "small-team-git-workflow",
+    "categories": ["Github", "Teamwork"]
   }
 ]
