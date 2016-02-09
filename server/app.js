@@ -6,8 +6,6 @@ var fs = require ('fs');
 var markdown = require("markdown").markdown;
 var glob = require('glob');
 
-var db = require('./db');
-
 // Middleware
 var parser = require('body-parser'); //makes the req.body.json an available json object.
 
