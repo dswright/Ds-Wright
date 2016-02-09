@@ -31,7 +31,6 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.get('/post-source/:id/', function(req, res) {
   res.writeHead(200, {"Content-Type":"application/json"});
   glob("server/source_data/post_data/"+req.params.id+"-*.MD", 'utf-8', function(err, files){ //the wildcard file name matching requires a module called 'glob'
-    console.log(files);
     fs.readFile(files[0], 'utf-8', function(err, data) { //the first file name in the response will be the correct post file.
       if (err) throw err;
       var responseObj = {
@@ -43,11 +42,9 @@ app.get('/post-source/:id/', function(req, res) {
 });
 
 app.get('/project-source/:project_url/', function(req, res) {
-  console.log("attempting proj fetch");
   res.writeHead(200, {"Content-Type":"application/json"});
   fs.readFile("server/source_data/project_data/"+req.params.project_url+".MD", 'utf-8', function(err, data){ //the wildcard file name matching requires a module called 'glob'
     if (err) throw err;
-    console.log("processed mk: ", markdown.toHTML(data));
     var responseObj = {
       markdown: markdown.toHTML(data),
     }
