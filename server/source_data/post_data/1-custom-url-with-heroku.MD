@@ -24,7 +24,15 @@ Now that you have figured out how to edit the nameservers on your host, you will
 
 ![Installing PointDNS on Heroku](/images/posts/PointDNS-heroku-install.png "Install PointDNS on Heroku")
 
-### 4. Update PointDNS settings
+### 4. Add custom domains to Heroku
+go to the terminal and enter the two commands below to add your custom domains and subdomains to Heroku app.
+
+* ``` heroku domains:add www.example.com ```
+* ``` heroku domains:add example.com ```
+
+Make sure to add both, or else only one will work!
+
+### 5. Update PointDNS settings
 
 First, select your domain from your PointDNS control panel. In the example below, I would select the 'ds-wright.com' link below.
 
@@ -34,7 +42,7 @@ Make sure that your DNS settings look similar to the settings below. For me, Poi
 
 ![PointDNS complete domain settings](/images/posts/PointDNS-complete-settings.png "Complete domain settings for PointDNS on Heroku")
 
-### 5. Update the name servers on your host to match the pointDNS nameservers
+### 6. Update the name servers on your host to match the pointDNS nameservers
 
 Lastly, change the name servers on your host that you found in step 2 to match the name servers used by the PointDNS Heroku add on.
 
