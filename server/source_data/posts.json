@@ -43,5 +43,9 @@
     "lead": "Git workflow can be tricky. Learn a good baseline workflow for working with your team.",
     "url": "small-team-git-workflow",
     "categories": ["Github", "Teamwork"]
+  },
+  {
+    "id": "6",
+    "title": "Promises Explained",
   }
 ]
