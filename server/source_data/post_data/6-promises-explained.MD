@@ -1,10 +1,11 @@
 
+Promises are an excellent feature of JavaScript that create a simple way to handle asynchronous functions like API calls. Promises are relatively simple, but they have some unique attributes that are important to understand.
 
-Here is a promise at its most basic level. This is so basic that it doesn't actually do anything interesting. Yet. The code below does 2 interesting things, it runs the Promise function immediately, and it resolves after 5 seconds.
+Here is a promise at its most basic level. The code below does 2 interesting things, it runs the Promise function immediately, and the promise resolves after 5 seconds.
 ```
-var noobPromise = new Promise( function(resolve, reject) { 
+var noobPromise = new Promise(function(resolve, reject) {
   window.setTimeout(function() {
-    console.log("timer over"); 
+    console.log("timer over");
     resolve();
   }, 5000);
 });
@@ -14,10 +15,10 @@ noobPromise // Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefine
 noobPromise // Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
 ```
 
-Now lets explore what promises are really for, which is utilizing the .then method. This promise will resolve after 5 seconds, and then run the additional console.log in the .then method.
-var decentPromise = new Promise( function(resolve, reject) { 
+Now the important part of promises, the then method. This promise will resolve after 5 seconds, and then run the additional console.log in the then method.
+var decentPromise = new Promise(function(resolve, reject) {
   window.setTimeout(function() {
-    console.log("timer over"); 
+    console.log("timer over");
     resolve();
   }, 5000);
 }).then(function(){console.log("then something else")});
@@ -28,14 +29,14 @@ decentPromise // Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefi
 "then something else"
 decentPromise // Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
 ```
-* The most important part to understand is the .then method *
-You will rarely have to create the Promise. The promise is typically a returned value from an asynchronous function like fetch. So understanding the .then method and .then chaining is the most important part of manipulating promises.
+** The most important part to understand is the * then * method **
+Rarely do promises have to be created. A promise is typically a returned value from an asynchronous function like fetch. So understanding the *then* method and *then* chaining is the most common way of manipulating promises.
 
-Here is the next evolution of the promise, passing data from the promise to the .then method. The .then data will receive data from the promise based on what is passed to resolve() in the promise. 
+Here is the next evolution of the promise: passing data from the promise to the *then* method, and beyond. The *then* method will receive data from the promise based on what is passed to resolve() in the promise.
 ```
-var goodPromise = new Promise( function(resolve, reject) { 
+var goodPromise = new Promise( function(resolve, reject) {
   window.setTimeout(function() {
-    console.log("timer over"); 
+    console.log("timer over");
     resolve("pass that data!");
   }, 5000);
 }).then(function(data){console.log("then something else &", data)});
@@ -46,11 +47,11 @@ goodPromise // Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefine
 goodPromise // Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
 ```
 
-The .then method can be used multiple times as well! Whatever is returned by the previous .then will be passed on as the data to the next .then method, allowing for .then chaining. In fact, the value returned from a promise can only be accessed using the .then method. There is no way to access the value of a promise directly because it is a private variable.
+The then method can be used multiple times as well! Whatever is returned by the *then* method will be passed on as the data to the next then method, allowing for *then* chaining. In fact, the value returned from a promise can only be accessed using the *then* method. There is no way to access the value of a promise directly because it is a private variable.
 ```
-var betterPromise = new Promise( function(resolve, reject) { 
+var betterPromise = new Promise( function(resolve, reject) {
   window.setTimeout(function() {
-    console.log("timer over"); 
+    console.log("timer over");
     resolve("pass that data!");
   }, 5000);
 }).then(function(data){
@@ -66,13 +67,13 @@ betterPromise // Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefi
 betterPromise // Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
 ```
 
-The next evolution in promises is returning an entire promise and calling .then on it in a different place. Passing an entire promise can be a very useful way of transferring data.
+The next step in working with promises is returning an entire promise and calling the *then* method on it in a different place. Passing an entire promise can be a very useful way of transferring data.
 
 ```
 var advancedPromise = function() {
-  return new Promise( function(resolve, reject) {  //return an entire promise from a function.
+  return new Promise(function(resolve, reject) {  //return an entire promise from a function.
     window.setTimeout(function() {
-      console.log("timer over"); 
+      console.log("timer over");
       resolve("pass that data!");
     }, 5000);
   });
@@ -88,7 +89,11 @@ advancedPromiseAssigned.then(function(data) {
 });
 ```
 
-This allows for promises data to be passed along and manipulated easily after being received from an API or other asynchronous function. 
+This allows for promise data to be passed along and manipulated easily after being received from an API or other asynchronous function.
+
+Additional excellent resources for promises:
+(JavaScript Promises - There and Back Again)[http://www.html5rocks.com/en/tutorials/es6/promises/]
+(JavaScript Promises from Mozilla)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise]
 
 
 

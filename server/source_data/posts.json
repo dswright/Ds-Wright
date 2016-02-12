@@ -46,6 +46,11 @@
   },
   {
     "id": "6",
-    "title": "Promises Explained",
+    "title": "JavaScript Promises Explained",
+    "date": "February 11, 2016",
+    "img": "/images/posts/javascript-promises-explained.jpeg",
+    "lead": "Basic attributes and patterns associated with promises",
+    "url": "javascript-promises-explained",
+    "categories": ["JavaScript", "Fundamentals"]
   }
 ]
