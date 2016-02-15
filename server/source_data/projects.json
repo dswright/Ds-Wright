@@ -14,5 +14,13 @@
     "headline": "DS-Wright - Personal Blog Project",
     "date": "8/24/2015",
     "image": "/images/projects/ds-wright.png"
+  },
+  {
+    "id": "3",
+    "url": "dreamchart",
+    "title": "Dreamchart",
+    "headline": "Dreamchart - Visualizing Financial Goals",
+    "date": "2/14/2016",
+    "image": "/images/projects/dreamchart.png"
   }
 ]
