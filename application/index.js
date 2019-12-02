@@ -5,9 +5,7 @@ import Footer from './components/footer';
 
 const App = () => (
   <div>
-    <Header />
     <Router />
-    <Footer />
   </div>
 );
 

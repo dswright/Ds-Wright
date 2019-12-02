@@ -1,0 +1,155 @@
+import React, { Fragment } from 'react';
+import {
+  Row, Col, Card, Modal, Button
+} from 'react-bootstrap';
+import ModalImage from './image';
+
+import airbnbBeginning from '../images/airbnb-beginning.jpg';
+import airbnbBeginningInside from '../images/airbnb-original-inside.jpg';
+import upstairsKitchenRenovations from '../images/upstairs-kitchen-rennovations.jpg';
+import floorDemoUpstairs from '../images/floor-demo-upstairs.jpg';
+import rennovationsBreak from '../images/rennovations-break.jpg';
+import upstairsDemod from '../images/upstairs-demod.jpg';
+import boathouseComplete from '../images/boathouse-complete.png';
+import diningTable from '../images/dining-table.png';
+import kitchenUpdated from '../images/kitchen-updated.png';
+import updatedEntry from '../images/updated-entry.png';
+
+export default ({ setShowModal }) => (
+  <Fragment>
+    <Modal.Header closeButton>
+      <Modal.Title>The Boat House on the Bay</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <p>
+        In 2017, My brother and I thought it would be fun to buy a house and
+        turn it into an Airbnb. We ended up buying a duplex in the small town of
+        Bodega Bay, nearby to where our parents live.
+      </p>
+      <Row className='mb-4'>
+        <Col md={6}>
+          <Card>
+            <ModalImage
+              imageSource={airbnbBeginning}
+              captionText='Whole house and driveway before renovations'
+            />
+          </Card>
+        </Col>
+        <Col md={6} className='mt-4 mt-md-0'>
+          <Card style={{ width: '80%', margin: 'auto' }}>
+            <ModalImage
+              imageSource={airbnbBeginningInside}
+              captionText='Original upstairs kitchen'
+            />
+          </Card>
+        </Col>
+      </Row>
+      <p>
+        The downstairs unit looked OK, but the upstairs unit needed to be
+        rennovated. My Dad and I did the demo ourselves.
+      </p>
+      <Row className='mb-4'>
+        <Col md={6}>
+          <Card>
+            <ModalImage
+              imageSource={upstairsKitchenRenovations}
+              captionText='Me removing upstairs kitchen cabinets'
+            />
+          </Card>
+        </Col>
+        <Col md={6} className='mt-4 mt-md-0'>
+          <Card style={{ width: '80%', margin: 'auto' }}>
+            <ModalImage
+              imageSource={floorDemoUpstairs}
+              captionText='Kitchen floor demo'
+            />
+          </Card>
+        </Col>
+      </Row>
+      <Row className='mb-4'>
+        <Col md={6}>
+          <Card>
+            <ModalImage
+              imageSource={rennovationsBreak}
+              captionText='Dad taking a break'
+            />
+          </Card>
+        </Col>
+        <Col md={6} className='mt-4 mt-md-0'>
+          <Card>
+            <ModalImage
+              imageSource={upstairsDemod}
+              captionText='Upstairs demo complete'
+            />
+          </Card>
+        </Col>
+      </Row>
+      <p>
+        Upstairs rennovations complete! It took 4 months from purchase in July
+        2017, to listing on Airbnb in November 2017.
+      </p>
+      <Row className='mb-4'>
+        <Col md={6}>
+          <Card>
+            <ModalImage
+              imageSource={kitchenUpdated}
+              captionText='Rennovated kitchen'
+            />
+          </Card>
+        </Col>
+        <Col md={6} className='mt-4 mt-md-0'>
+          <Card>
+            <ModalImage
+              imageSource={diningTable}
+              captionText='Rennovated dining area'
+            />
+          </Card>
+        </Col>
+      </Row>
+      <Row className='mb-4'>
+        <Col md={6}>
+          <Card>
+            <ModalImage
+              imageSource={updatedEntry}
+              captionText='Rennovated living room'
+            />
+          </Card>
+        </Col>
+        <Col md={6} className='mt-4 mt-md-0'>
+          <Card>
+            <ModalImage
+              imageSource={boathouseComplete}
+              captionText='Whole house'
+            />
+          </Card>
+        </Col>
+      </Row>
+      <p>
+        Now we have the full house listed on Airbnb. My parents manage the
+        day-to-day maintenance of the Airbnb, and I enjoy going up on
+        mini-vacations when its available.
+      </p>
+      <div>Video here</div>
+      <a
+        className='btn btn-success d-block m-auto'
+        href='https://www.airbnb.com/rooms/21961842?s=67&shared_item_type=1&virality_entry_point=1&sharer_id=24534364'
+        role='button'
+        style={{ maxWidth: '250px' }}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        See our Airbnb listing
+      </a>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button
+        variant='primary'
+        onClick={() => {
+          setShowModal(false);
+        }}
+      >
+        Close Modal
+      </Button>
+    </Modal.Footer>
+  </Fragment>
+);
