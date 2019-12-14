@@ -21,7 +21,7 @@ const jobs = [
     buttonCta: 'Go Somewhere'
   },
   {
-    title: 'Tierracast.com',
+    title: 'TierraCast',
     image: tierracastHomepage,
     description:
       'TierraCast, Inc. is a manufacturer of of plated jewelry parts from my hometown of Santa Rosa, CA.',
