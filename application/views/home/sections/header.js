@@ -8,10 +8,20 @@ export default () => (
   <Navbar bg='light'>
     <div className='container'>
       <Nav className={styles.headerWrapper}>
-        <Nav.Link href='#home' className='p-2'>
+        <Nav.Link
+          href='https://www.linkedin.com/in/dylanswright/'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='p-2'
+        >
           LinkedIn
         </Nav.Link>
-        <Nav.Link href='#home' className='p-2'>
+        <Nav.Link
+          href='https://github.com/dswright'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='p-2'
+        >
           GitHub
         </Nav.Link>
         <Nav.Link href='#home' className='p-2'>

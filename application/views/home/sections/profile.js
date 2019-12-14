@@ -38,7 +38,12 @@ export default () => (
             src={profilePic}
             alt='Dylan Wright Profile'
             className='d-block'
-            style={{ maxWidth: '200px', borderRadius: '50%', margin: 'auto' }}
+            style={{
+              maxWidth: '200px',
+              borderRadius: '50%',
+              margin: 'auto',
+              border: '5px solid gainsboro'
+            }}
           />
         </div>
       </Col>
