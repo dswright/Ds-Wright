@@ -37,13 +37,15 @@ export default ({ clientStats }) => (req, res) => {
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
           <meta charset="utf-8">
-          <title>DSWright - Dylan Wright's Portfolio Website</title>
+          <title>Dylan Wright's Portfolio Website - ds-wright.com</title>
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
           />
+          <link rel="icon" href="/favicon.ico?v=1.0" type="image/x-icon" />
+          <link rel="shortcut icon" href="/favicon.ico?v=1.0" />
           ${styles}
         </head>
         <body>

@@ -22,3 +22,11 @@
     cursor: pointer;
   }
 }
+
+.headerWrapper {
+  margin-left: auto;
+  @media (max-width: 768px) {
+    margin-left: auto;
+    margin: auto;
+  }
+}

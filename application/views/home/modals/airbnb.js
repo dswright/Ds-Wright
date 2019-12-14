@@ -4,16 +4,16 @@ import {
 } from 'react-bootstrap';
 import ModalImage from './image';
 
-import airbnbBeginning from '../images/airbnb-beginning.jpg';
-import airbnbBeginningInside from '../images/airbnb-original-inside.jpg';
-import upstairsKitchenRenovations from '../images/upstairs-kitchen-rennovations.jpg';
-import floorDemoUpstairs from '../images/floor-demo-upstairs.jpg';
-import rennovationsBreak from '../images/rennovations-break.jpg';
-import upstairsDemod from '../images/upstairs-demod.jpg';
-import boathouseComplete from '../images/boathouse-complete.png';
-import diningTable from '../images/dining-table.png';
-import kitchenUpdated from '../images/kitchen-updated.png';
-import updatedEntry from '../images/updated-entry.png';
+import airbnbBeginning from '../images/airbnb/airbnb-beginning.jpg';
+import airbnbBeginningInside from '../images/airbnb/airbnb-original-inside.jpg';
+import upstairsKitchenRenovations from '../images/airbnb/upstairs-kitchen-rennovations.jpg';
+import floorDemoUpstairs from '../images/airbnb/floor-demo-upstairs.jpg';
+import rennovationsBreak from '../images/airbnb/rennovations-break.jpg';
+import upstairsDemod from '../images/airbnb/upstairs-demod.jpg';
+import boathouseComplete from '../images/airbnb/boathouse-complete.png';
+import diningTable from '../images/airbnb/dining-table.png';
+import kitchenUpdated from '../images/airbnb/kitchen-updated.png';
+import updatedEntry from '../images/airbnb/updated-entry.png';
 
 export default ({ setShowModal }) => (
   <Fragment>
@@ -126,19 +126,29 @@ export default ({ setShowModal }) => (
       </Row>
       <p>
         Now we have the full house listed on Airbnb. My parents manage the
-        day-to-day maintenance of the Airbnb, and I enjoy going up on
-        mini-vacations when its available.
+        day-to-day maintenance of the Airbnb, and I enjoy going up for visits
+        when its available.
       </p>
-      <div>Video here</div>
+      <div style={{ maxWidth: '500px', margin: 'auto' }}>
+        <iframe
+          title='Bodega Bay Airbnb Promo Video'
+          width='100%'
+          height='315'
+          src='https://www.youtube.com/embed/24PkMaOluvQ'
+          frameBorder='0'
+          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+      </div>
       <a
-        className='btn btn-success d-block m-auto'
+        className='btn btn-success d-block'
         href='https://www.airbnb.com/rooms/21961842?s=67&shared_item_type=1&virality_entry_point=1&sharer_id=24534364'
         role='button'
-        style={{ maxWidth: '250px' }}
+        style={{ maxWidth: '250px', margin: '20px auto 15px' }}
         target='_blank'
         rel='noopener noreferrer'
       >
-        See our Airbnb listing
+        See the Airbnb listing
       </a>
     </Modal.Body>
     <Modal.Footer>
@@ -148,7 +158,7 @@ export default ({ setShowModal }) => (
           setShowModal(false);
         }}
       >
-        Close Modal
+        Close
       </Button>
     </Modal.Footer>
   </Fragment>

@@ -1,48 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Container, Row, Col, Card, Button
+  Container, Row, Col, Card, Modal
 } from 'react-bootstrap';
+import CoverHoundModal from '../modals/coverhound';
+import CyberPolicyModal from '../modals/cyberpolicy';
+import StockIQModal from '../modals/stock-iq';
 
-const projects = [
+import styles from '../home.scss';
+
+import myNeighborsFarmHomepage from '../images/myneighborsfarm/homepage.png';
+import tierracastHomepage from '../images/tierracast/homepage.png';
+import stockIq from '../images/stock-iq/home.png';
+
+const jobs = [
   {
-    title: 'MyNeighborsFarm',
-    image: '',
+    title: 'My Neighbors Farm',
+    image: myNeighborsFarmHomepage,
     description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
+      'MyNeighborsFarm is my current side project. Its not much except good coding practice for now!',
     buttonCta: 'Go Somewhere'
   },
   {
-    title: 'TierraCast Inc.',
-    image: '',
+    title: 'Tierracast.com',
+    image: tierracastHomepage,
     description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
+      'TierraCast, Inc. is a manufacturer of of plated jewelry parts from my hometown of Santa Rosa, CA.',
     buttonCta: 'Go Somewhere'
   },
   {
     title: 'Crypto Arbi',
-    image: '',
+    image: stockIq,
     description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
+      'A cryptocurrency arbitrage bot that I created to automatically trade the price spreads on different crypto exchanges.',
     buttonCta: 'Go Somewhere'
   }
 ];
 
-export default () => (
-  <Container className='mt-4'>
-    <h4 className='mt-4'>Side Projects</h4>
-    <Row>
-      {projects.map((job) => (
-        <Col md={4}>
-          <Card>
-            <Card.Img variant='top' src='holder.js/100px180' />
-            <Card.Body>
-              <Card.Title>{job.title}</Card.Title>
-              <Card.Text>{job.description}</Card.Text>
-              <Button variant='primary'>{job.buttonCta}</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
-  </Container>
-);
+export default () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const [selectedModal, setSelectedModal] = useState('');
+
+  const getModalContents = (selectedModal, setShowModal) => {
+    switch (selectedModal) {
+      case 'CyberPolicy':
+        return <CyberPolicyModal setShowModal={setShowModal} />;
+      case 'CoverHound':
+        return <CoverHoundModal setShowModal={setShowModal} />;
+      case 'Stock IQ':
+        return <StockIQModal setShowModal={setShowModal} />;
+      default:
+        return <div />;
+    }
+  };
+
+  return (
+    <Container>
+      <h4 className='mt-4'>Side Projects</h4>
+      <Row>
+        {jobs.map((job) => (
+          <Col md={4} key={job.title}>
+            <div
+              onClick={() => {
+                setShowModal(true);
+                setSelectedModal(job.title);
+              }}
+              title={`Learn More about ${job.title}`}
+              role='button'
+              onKeyPress={(event) => {
+                if (event.keyCode === 13) {
+                  setShowModal(true);
+                }
+              }}
+              tabIndex={0}
+              style={{ display: 'block' }}
+            >
+              <Card className={styles.card}>
+                <div
+                  style={{
+                    backgroundImage: `url("${job.image}")`,
+                    backgroundSize: 'cover',
+                    height: '150px',
+                    backgroundPosition: '50%'
+                  }}
+                />
+                <Card.Body>
+                  <Card.Title>{job.title}</Card.Title>
+                  <Card.Text>{job.description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+          </Col>
+        ))}
+      </Row>
+      <Modal
+        show={showModal}
+        onHide={() => {
+          setShowModal(false);
+        }}
+        size='lg'
+      >
+        {getModalContents(selectedModal, setShowModal)}
+      </Modal>
+    </Container>
+  );
+};

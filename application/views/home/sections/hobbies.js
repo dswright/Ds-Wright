@@ -7,20 +7,13 @@ import AirbnbModal from '../modals/airbnb';
 
 import styles from '../home.scss';
 
-import airbnbPic from '../images/airbnb-pic.jpg';
+import airbnbPic from '../images/airbnb/airbnb-pic.jpg';
 
 const projects = [
   {
     title: 'Airbnb Host',
     image: airbnbPic,
     description: 'I own an Airbnb in Bodega Bay with my family.',
-    buttonCta: 'Go Somewhere'
-  },
-  {
-    title: 'Investing',
-    image: '',
-    description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
     buttonCta: 'Go Somewhere'
   },
   {
@@ -58,7 +51,7 @@ export default () => {
       <h4 className='mt-4'>Hobbies</h4>
       <Row>
         {projects.map((job) => (
-          <Col md={3} key={job.title}>
+          <Col md={4} key={job.title}>
             <div
               onClick={() => {
                 setShowModal(true);

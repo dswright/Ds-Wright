@@ -27,11 +27,7 @@ export default () => (
               Hi, I&apos;m Dylan! I&apos;m a software engineer with a passion
               for product design & growth marketing. I am currently seeking a
               new opportunity as a software engineer at a small to midsize
-              company located in San Francisco, CA. Please
-              {' '}
-              <a href='/#contact'>contact me</a>
-              {' '}
-if you are hiring!
+              company located in San Francisco, CA.
             </p>
           </Col>
         </Row>
