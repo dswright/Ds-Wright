@@ -24,7 +24,12 @@ export default () => (
         >
           GitHub
         </Nav.Link>
-        <Nav.Link href='#home' className='p-2'>
+        <Nav.Link
+          href='/dylan-wright-software-engineer.pdf'
+          className='p-2'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           Resume
         </Nav.Link>
         <Nav.Link
