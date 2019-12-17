@@ -4,10 +4,12 @@ import {
 } from 'react-bootstrap';
 
 import AirbnbModal from '../modals/airbnb';
+import PiperModal from '../modals/piper';
 
 import styles from '../home.scss';
 
 import airbnbPic from '../images/airbnb/airbnb-pic.jpg';
+import piperTheMiniAussie from '../images/piper/homepage.jpg';
 
 const projects = [
   {
@@ -17,10 +19,10 @@ const projects = [
     buttonCta: 'Go Somewhere'
   },
   {
-    title: 'My Dog',
-    image: '',
+    title: 'Piper The Mini Aussie',
+    image: piperTheMiniAussie,
     description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
+      "I got Piper the Mini Aussie in July 2018. She's the cutest mini-aussie in SF!",
     buttonCta: 'Go Somewhere'
   },
   {
@@ -41,6 +43,8 @@ export default () => {
     switch (selectedModal) {
       case 'Airbnb Host':
         return <AirbnbModal setShowModal={setShowModal} />;
+      case 'Piper The Mini Aussie':
+        return <PiperModal setShowModal={setShowModal} />;
       default:
         return <div />;
     }
@@ -67,7 +71,15 @@ export default () => {
               style={{ display: 'block' }}
             >
               <Card className={styles.card}>
-                <Card.Img variant='top' src={job.image} />
+                <div
+                  style={{
+                    backgroundImage: `url("${job.image}")`,
+                    backgroundSize: 'cover',
+                    height: '150px',
+                    backgroundPosition: '80%',
+                    backgroundPositionY: '20%'
+                  }}
+                />
                 <Card.Body>
                   <Card.Title>{job.title}</Card.Title>
                   <Card.Text>{job.description}</Card.Text>
