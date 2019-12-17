@@ -5,11 +5,13 @@ import {
 
 import AirbnbModal from '../modals/airbnb';
 import PiperModal from '../modals/piper';
+import GamesModal from '../modals/games';
 
 import styles from '../home.scss';
 
 import airbnbPic from '../images/airbnb/airbnb-pic.jpg';
 import piperTheMiniAussie from '../images/piper/homepage.jpg';
+import gamesImage from '../images/games/homepage.jpg';
 
 const projects = [
   {
@@ -27,9 +29,9 @@ const projects = [
   },
   {
     title: 'Games',
-    image: '',
+    image: gamesImage,
     description:
-      'Some quick example text to build on the card title and make up the bulk of the cards content.',
+      "I like to relax and play some good first-person shooters. Right now I'm playing Overwatch!",
     buttonCta: 'Go Somewhere'
   }
 ];
@@ -45,6 +47,8 @@ export default () => {
         return <AirbnbModal setShowModal={setShowModal} />;
       case 'Piper The Mini Aussie':
         return <PiperModal setShowModal={setShowModal} />;
+      case 'Games':
+        return <GamesModal setShowModal={setShowModal} />;
       default:
         return <div />;
     }

@@ -10,7 +10,7 @@ import styles from '../home.scss';
 
 import myNeighborsFarmHomepage from '../images/my-neighbors-farm/homepage.png';
 import tierracastHomepage from '../images/tierracast/homepage.png';
-import stockIq from '../images/stock-iq/home.png';
+import cryptoArbiDashboard from '../images/crypto-arbi/dashboard.png';
 
 const jobs = [
   {
@@ -29,7 +29,7 @@ const jobs = [
   },
   {
     title: 'Crypto Arbi',
-    image: stockIq,
+    image: cryptoArbiDashboard,
     description:
       'A cryptocurrency arbitrage bot that I created to automatically trade the price spreads on different crypto exchanges.',
     buttonCta: 'Go Somewhere'
