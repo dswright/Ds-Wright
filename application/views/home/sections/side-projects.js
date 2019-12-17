@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Container, Row, Col, Card, Modal
 } from 'react-bootstrap';
-import CoverHoundModal from '../modals/coverhound';
-import CyberPolicyModal from '../modals/cyberpolicy';
-import StockIQModal from '../modals/stock-iq';
+import MyNeighborsFarmModal from '../modals/my-neighbors-farm';
+import TierraCastModal from '../modals/tierracast';
+import CryptoArbiModal from '../modals/crypto-arbi';
 
 import styles from '../home.scss';
 
-import myNeighborsFarmHomepage from '../images/myneighborsfarm/homepage.png';
+import myNeighborsFarmHomepage from '../images/my-neighbors-farm/homepage.png';
 import tierracastHomepage from '../images/tierracast/homepage.png';
 import stockIq from '../images/stock-iq/home.png';
 
@@ -43,12 +43,12 @@ export default () => {
 
   const getModalContents = (selectedModal, setShowModal) => {
     switch (selectedModal) {
-      case 'CyberPolicy':
-        return <CyberPolicyModal setShowModal={setShowModal} />;
-      case 'CoverHound':
-        return <CoverHoundModal setShowModal={setShowModal} />;
-      case 'Stock IQ':
-        return <StockIQModal setShowModal={setShowModal} />;
+      case 'My Neighbors Farm':
+        return <MyNeighborsFarmModal setShowModal={setShowModal} />;
+      case 'TierraCast':
+        return <TierraCastModal setShowModal={setShowModal} />;
+      case 'Crypto Arbi':
+        return <CryptoArbiModal setShowModal={setShowModal} />;
       default:
         return <div />;
     }

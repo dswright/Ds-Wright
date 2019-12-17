@@ -4,7 +4,7 @@ export default () => (
   <div
     style={{
       backgroundColor: 'gainsboro',
-      height: '125px',
+      height: '75px',
       marginTop: '100px'
     }}
   >

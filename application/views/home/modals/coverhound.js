@@ -2,10 +2,6 @@ import React, { Fragment } from 'react';
 import {
   Row, Col, Card, Modal, Button
 } from 'react-bootstrap';
-import ModalImage from './image';
-
-import serverSideRendering from '../images/cyberpolicy/server-side-render.png';
-import floorDemoUpstairs from '../images/cyberpolicy/javascript-bundle-chunking.png';
 
 export default ({ setShowModal }) => (
   <Fragment>
