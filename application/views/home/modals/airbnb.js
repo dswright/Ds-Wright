@@ -22,7 +22,7 @@ export default ({ setShowModal }) => (
     </Modal.Header>
     <Modal.Body>
       <p>
-        In 2017, My brother and I thought it would be fun to buy a house and
+        In 2017, my brother and I thought it would be fun to buy a house and
         turn it into an Airbnb. We ended up buying a duplex in the small town of
         Bodega Bay, nearby to where our parents live.
       </p>
@@ -31,7 +31,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={airbnbBeginning}
-              captionText='Whole house and driveway before renovations'
+              captionText='Original Outside View'
             />
           </Card>
         </Col>
@@ -39,21 +39,21 @@ export default ({ setShowModal }) => (
           <Card style={{ width: '80%', margin: 'auto' }}>
             <ModalImage
               imageSource={airbnbBeginningInside}
-              captionText='Original upstairs kitchen'
+              captionText='Original Upstairs Kitchen'
             />
           </Card>
         </Col>
       </Row>
       <p>
         The downstairs unit looked OK, but the upstairs unit needed to be
-        rennovated. My Dad and I did the demo ourselves.
+        renovated. My Dad and I did the demo ourselves.
       </p>
       <Row className='mb-4'>
         <Col md={6}>
           <Card>
             <ModalImage
               imageSource={upstairsKitchenRenovations}
-              captionText='Me removing upstairs kitchen cabinets'
+              captionText='Removing Upstairs Kitchen Cabinets'
             />
           </Card>
         </Col>
@@ -61,7 +61,7 @@ export default ({ setShowModal }) => (
           <Card style={{ width: '80%', margin: 'auto' }}>
             <ModalImage
               imageSource={floorDemoUpstairs}
-              captionText='Kitchen floor demo'
+              captionText='Kitchen Floor Demo'
             />
           </Card>
         </Col>
@@ -71,7 +71,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={rennovationsBreak}
-              captionText='Dad taking a break'
+              captionText='Dad Taking a Break'
             />
           </Card>
         </Col>
@@ -79,7 +79,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={upstairsDemod}
-              captionText='Upstairs demo complete'
+              captionText='Upstairs Demo Complete'
             />
           </Card>
         </Col>
@@ -93,7 +93,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={kitchenUpdated}
-              captionText='Rennovated kitchen'
+              captionText='Renovated kitchen'
             />
           </Card>
         </Col>
@@ -101,7 +101,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={diningTable}
-              captionText='Rennovated dining area'
+              captionText='Renovated Dining Area'
             />
           </Card>
         </Col>
@@ -111,7 +111,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={updatedEntry}
-              captionText='Rennovated living room'
+              captionText='Renovated Living Room'
             />
           </Card>
         </Col>
@@ -119,7 +119,7 @@ export default ({ setShowModal }) => (
           <Card>
             <ModalImage
               imageSource={boathouseComplete}
-              captionText='Whole house'
+              captionText='Outside View'
             />
           </Card>
         </Col>
@@ -153,7 +153,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}

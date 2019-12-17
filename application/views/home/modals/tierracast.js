@@ -94,14 +94,14 @@ export default ({ setShowModal }) => (
       <p>
         Post-launch, I took a more active role in development on TierraCast.com
         and I helped optimize the new website to for improved SEO performance.
-        They now hold several non-brand position 1 rankings, and they have
-        gained dozens of non-brand page 1 rankings. Their monthly traffic from
-        organic search has increased non-stop month over month since launch.
+        The TierraCast website is now the first result in Google search for
+        several competitve search terms. Their monthly traffic from organic
+        search has increased non-stop month over month since launch.
       </p>
 
-      <h5>First Rank 1 Result</h5>
+      <h5>First Position 1 Result on Google Search</h5>
       <p>
-        The first high-volume non-brand keyword that TierraCast captured was
+        The first high-volume generic keyword that TierraCast captured was
         &apos;niobium ear wires&apos;. Visit the ranking page on
         TierraCast.com&nbsp;
         <a
@@ -121,15 +121,6 @@ export default ({ setShowModal }) => (
           here.
         </a>
       </p>
-      <h5>Moving On</h5>
-      <p>
-        It has been fun to help TierraCast, and to have the opportunity to build
-        an e-commerce experience from the ground up. But at this point, the new
-        website that they needed is complete, and they now have a platform that
-        allows them to properly update and manage their webite as necessary. So
-        I am moving on!
-      </p>
-
       <a
         className='btn btn-success d-block'
         href='https://tierracast.com'
@@ -143,7 +134,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}

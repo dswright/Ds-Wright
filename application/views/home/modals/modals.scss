@@ -16,3 +16,10 @@
     text-decoration: none;
   }
 }
+
+.imageLink {
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

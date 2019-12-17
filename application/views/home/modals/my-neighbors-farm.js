@@ -51,7 +51,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}

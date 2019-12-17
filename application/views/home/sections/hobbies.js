@@ -21,7 +21,7 @@ const projects = [
     buttonCta: 'Go Somewhere'
   },
   {
-    title: 'Piper The Mini Aussie',
+    title: 'Piper the Mini Aussie',
     image: piperTheMiniAussie,
     description:
       "I got Piper the Mini Aussie in July 2018. She's the cutest mini-aussie in SF!",
@@ -45,7 +45,7 @@ export default () => {
     switch (selectedModal) {
       case 'Airbnb Host':
         return <AirbnbModal setShowModal={setShowModal} />;
-      case 'Piper The Mini Aussie':
+      case 'Piper the Mini Aussie':
         return <PiperModal setShowModal={setShowModal} />;
       case 'Games':
         return <GamesModal setShowModal={setShowModal} />;

@@ -14,17 +14,17 @@ import cryptoArbiDashboard from '../images/crypto-arbi/dashboard.png';
 
 const jobs = [
   {
-    title: 'My Neighbors Farm',
-    image: myNeighborsFarmHomepage,
-    description:
-      'MyNeighborsFarm is my current side project. Its not much except good coding practice for now!',
-    buttonCta: 'Go Somewhere'
-  },
-  {
     title: 'TierraCast',
     image: tierracastHomepage,
     description:
       'TierraCast, Inc. is a manufacturer of of plated jewelry parts from my hometown of Santa Rosa, CA.',
+    buttonCta: 'Go Somewhere'
+  },
+  {
+    title: 'My Neighbors Farm',
+    image: myNeighborsFarmHomepage,
+    description:
+      'MyNeighborsFarm is my current side project. Its not much except good coding practice for now!',
     buttonCta: 'Go Somewhere'
   },
   {

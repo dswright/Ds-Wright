@@ -15,16 +15,16 @@ export default ({ setShowModal }) => (
     <Modal.Body>
       <p>
         Two of the products I worked on for CyberPolicy were CyberPolicy
-        Complete and CyberPolicy CheckUp (Frontend Only)
+        Complete and CyberPolicy CheckUp
       </p>
       <h4>CyberPolicy Complete</h4>
       <p>
-        Cyber Complete was the original CyberPolicy product. Fundamentally, its
-        a 4 page form flow which ends with the customer getting quotes from
-        different cyber insurance carriers, and allows them to buy a policy
-        online directly through CyberPolicy.com.
+        CyberPolicy Complete was the original CyberPolicy product.
+        Fundamentally, it is a 4 page form flow which ends with the customer
+        getting quotes from different cyber insurance carriers, and allows them
+        to buy a policy online directly through CyberPolicy.com.
       </p>
-      <h5>CyberPolicy Complete Demo Video</h5>
+      <h5>Demo Video</h5>
       <div style={{ maxWidth: '500px', margin: 'auto' }}>
         <iframe
           title='Youtube CyberPolicy Complete'
@@ -36,7 +36,7 @@ export default ({ setShowModal }) => (
           allowFullScreen
         />
       </div>
-      <h5>CyberPolicy Stack Overview</h5>
+      <h5>Tech Stack</h5>
       <p>
         The flow is built with React, Redux, React Router, React on Rails,
         Webpack, and Ruby on Rails.
@@ -121,7 +121,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}

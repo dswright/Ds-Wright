@@ -2,7 +2,12 @@ import React, { Fragment } from 'react';
 import modalStyles from './modals.scss';
 
 export default ({ imageSource, captionText, height }) => (
-  <a href={imageSource} target='_blank' rel='noopener noreferrer'>
+  <a
+    href={imageSource}
+    target='_blank'
+    rel='noopener noreferrer'
+    className={modalStyles.imageLink}
+  >
     <div
       src={imageSource}
       className={modalStyles.imageContainer}

@@ -17,12 +17,12 @@ export default ({ setShowModal }) => (
       <p>
         In my opinion, the most interesting part of the CoverHound Commercial
         Insurance app is how the form questions are dynamically rendered based
-        the users answers to previous questions. Depending on the products the
-        user selects, the user&apos;s physical location, and their business
-        type, the question list will change. The goal is to require the least
-        number of questions possible, but the challenge is that there are
+        on the user&apos; answers to previous questions. Depending on the
+        products the user selects, the user&apos;s physical location, and their
+        business type, the question list will change. The goal is to require the
+        least number of questions possible, but the challenge is that there are
         thousands of different possible question sets. Building the architecture
-        for this flow was challenging, but enjoyable, and I learned alot in the
+        for this flow was challenging, but enjoyable, and I learned a lot in the
         process.
       </p>
       <h5>Complete CoverHound Business Insurance Demo</h5>
@@ -50,7 +50,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}

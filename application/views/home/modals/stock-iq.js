@@ -24,7 +24,7 @@ export default ({ setShowModal }) => (
         predictions.
       </p>
       <p>
-        We got into a startup incubartor called 500 Startups. Here&apos;s our
+        We got into a startup incubator called 500 Startups. Here&apos;s our
         cohort:
       </p>
       <Row className='mb-4'>
@@ -71,7 +71,7 @@ export default ({ setShowModal }) => (
     </Modal.Body>
     <Modal.Footer>
       <Button
-        variant='primary'
+        variant='light'
         onClick={() => {
           setShowModal(false);
         }}
