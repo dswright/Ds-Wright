@@ -5,6 +5,9 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'assets')));
 
+// allow req.secure (https parameter) to be passed through proxy
+app.enable('trust proxy');
+
 // redirect http to https
 app.use((req, res, next) => {
   if (req.secure || req.headers.host === 'localhost:3000') {
