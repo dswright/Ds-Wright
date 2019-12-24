@@ -1,9 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from '../application';
-import store from '../application/store/store';
 
 const render = (App) => hydrate(
   // hydrate seeks to align client app with the already-rendered server app.
@@ -12,11 +10,9 @@ const render = (App) => hydrate(
 );
 
 const theApp = () => (
-  <Provider store={store()}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
