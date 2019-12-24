@@ -56,7 +56,7 @@ export default () => {
 
   return (
     <Container>
-      <h4 className='mt-4'>Hobbies</h4>
+      <h4 className='mt-4 mb-3'>Hobbies</h4>
       <Row>
         {projects.map((job) => (
           <Col md={4} key={job.title}>
