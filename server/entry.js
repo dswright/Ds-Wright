@@ -5,17 +5,14 @@ import flushChunks from 'webpack-flush-chunks';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import App from '../application';
-import store from '../application/store/store';
 
 export default ({ clientStats }) => (req, res) => {
   // need to hydrate the store with server data still.
   // Do this after implementing some basic apis.
   const app = ReactDOM.renderToString(
-    <Provider store={store()}>
-      <StaticRouter location={req.url} context={{}}>
-        <App />
-      </StaticRouter>
-    </Provider>
+    <StaticRouter location={req.url} context={{}}>
+      <App />
+    </StaticRouter>
   );
 
   const chunkNames = flushChunkNames();
